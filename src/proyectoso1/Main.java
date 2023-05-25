@@ -9,13 +9,18 @@ package proyectoso1;
  *
  * @author Abril
  */
-public class ProyectoSO1 {
+public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Hilo hilo1 = new Hilo("Holis 1");
+        Hilo hilo2 = new Hilo("Holis 2");
+        
+        hilo1.start();
+        hilo2.start();
     }
     
 }
