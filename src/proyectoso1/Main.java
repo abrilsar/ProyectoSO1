@@ -16,8 +16,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Hilo hilo1 = new Hilo("Holis 1");
-        Hilo hilo2 = new Hilo("Holis 2");
+        Worker hilo1 = new Worker("Holis 1");
+        Worker hilo2 = new Worker("Holis 2");
         
         hilo1.start();
         hilo2.start();

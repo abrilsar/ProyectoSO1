@@ -12,11 +12,11 @@ import java.util.logging.Logger;
  *
  * @author paola
  */
-public class Hilo extends Thread{
+public class Worker extends Thread{
 
     private String msg;
     
-    public Hilo(String text) {
+    public Worker(String text) {
         this.msg = text;
     }
     
@@ -27,7 +27,7 @@ public class Hilo extends Thread{
                 System.out.println(msg);
                 sleep(1000);
             } catch (InterruptedException ex) {
-                Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
             }
             }
         }
