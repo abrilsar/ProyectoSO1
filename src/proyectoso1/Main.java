@@ -19,8 +19,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        LGPlant = new VehiclePlant("Lamborghini", 16, 1000);
-        RBPlant = new VehiclePlant("Rolls Royce", 12, 1000)
+//        LGPlant = new VehiclePlant("Lamborghini", 16, 1000);
+//        RBPlant = new VehiclePlant("Rolls Royce", 12, 1000);
     }
     
 }
