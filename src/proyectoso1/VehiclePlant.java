@@ -18,4 +18,25 @@ public class VehiclePlant {
     private long dayDuration;
     public WareHouse wareHouse;
     public Semaphore mutex;
+
+    public VehiclePlant(String name, int maxWorkerQty, long dayDuration) {
+        this.name = name;
+        this.maxWorkerQty = maxWorkerQty;
+        this.workers = new Worker[maxWorkerQty];
+        this.dayDuration = dayDuration;
+        this.wareHouse = new WareHouse(5,3,4,5,6);
+        this.mutex = new Semaphore(1);
+        
+        initializeWorkers();
+    }
+    
+    private void initializeWorkers(){
+        for(int i = 0; i < this.maxWorkerQty; i++){
+            Worker worker = new Worker("hola");
+            worker.start();
+            workers[i] = worker;
+        }
+    }
+    
+    
 }
