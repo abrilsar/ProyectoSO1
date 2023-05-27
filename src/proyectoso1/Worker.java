@@ -65,7 +65,7 @@ public class Worker extends Thread{
         if (this.productionCounter >= 1){
             try {
                 plant.mutex.acquire();
-                plant.warehouse.updateStorage(this.type, (int) this.productionCounter);
+                plant.wareHouse.updateStorage(this.type, (int) this.productionCounter);
                 plant.mutex.release();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
