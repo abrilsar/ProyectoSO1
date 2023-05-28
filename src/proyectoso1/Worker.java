@@ -57,6 +57,7 @@ public class Worker extends Thread{
     
     public void payCheck(){
         this.accSalary += this.salary;
+        System.out.println("Pagando salario");
         
     }
     
@@ -73,6 +74,6 @@ public class Worker extends Thread{
             this.productionCounter = 0;
         }
     }
-    }
+}
     
 

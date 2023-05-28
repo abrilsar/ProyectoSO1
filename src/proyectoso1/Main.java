@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package proyectoso1;
-
+import form.Form;
 /**
  *
  * @author Abril
@@ -13,14 +13,17 @@ public class Main {
 
     public static VehiclePlant LGPlant;
     public static VehiclePlant RBPlant;
+    public static final Form mainPage = new Form();
+
         
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        LGPlant = new VehiclePlant("Lamborghini", 16, 1000);
-        RBPlant = new VehiclePlant("Rolls Royce", 12, 1000);
+        mainPage.setVisible(true);
+//        LGPlant = new VehiclePlant("Lamborghini", 16, 1000);
+//        RBPlant = new VehiclePlant("Rolls Royce", 12, 1000);
     }
     
 }

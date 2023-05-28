@@ -44,10 +44,11 @@ public class WareHouse {
             case "chasis" :
                 if(this.chasisQty < this.maxChasisQty){
                     this.chasisQty += finishedPart;
+                    System.out.println("Chasis agregado");
                 }
                 break;
                 
-            case "bodie" :
+            case "bodies" :
                 if(this.bodiesQty < this.maxBodiesQty){
                    this.bodiesQty += finishedPart;
                 }

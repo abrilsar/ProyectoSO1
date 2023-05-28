@@ -24,18 +24,17 @@ public class VehiclePlant {
         this.maxWorkerQty = maxWorkerQty;
         this.workers = new Worker[maxWorkerQty];
         this.dayDuration = dayDuration;
-        this.workers = new Worker[maxWorkerQty];
         this.wareHouse = new WareHouse(5,3,4,5,6);
         this.mutex = new Semaphore(1);
-        
+
         initializeWorkers();
     }
     
-    private void initializeWorkers(){
+    public void initializeWorkers(){
         for(int i = 0; i < this.maxWorkerQty; i++){
             Worker worker = new Worker(0.34f, 20, this.dayDuration, "chasis", this);
             worker.start();
-            workers[i] = worker;
+            this.workers[i] = worker;
         }
     }
     

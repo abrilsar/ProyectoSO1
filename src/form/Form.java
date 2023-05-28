@@ -5,19 +5,39 @@
  */
 package form;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
 /**
  *
  * @author paola
  */
-public class Form extends javax.swing.JFrame {
+public final class Form extends javax.swing.JFrame {
 
     /**
      * Creates new form Form
      */
     public Form() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        WorkersQty wRR = new WorkersQty(12);
+        WorkersQty wLG = new WorkersQty(16);
+        createWorkersQty(contentRR, wRR);
+        createWorkersQty(contentLG, wLG);
+        
+//        wq.setVisible(true);
+        
     }
 
+       public void createWorkersQty(JPanel panel, WorkersQty wq){
+            wq.setSize(60, 220);
+            wq.setLocation(0, 0);
+            panel.removeAll();
+            panel.add(wq, BorderLayout.CENTER);
+            panel.revalidate();
+            panel.repaint();
+           
+       }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +48,8 @@ public class Form extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        DashBoard_Panel = new javax.swing.JPanel();
+        contentRR = new javax.swing.JPanel();
         Título = new javax.swing.JLabel();
         ganancias_bruto = new javax.swing.JLabel();
         gastos_op = new javax.swing.JLabel();
@@ -44,72 +65,76 @@ public class Form extends javax.swing.JFrame {
         Guardar = new javax.swing.JButton();
         RR1 = new javax.swing.JLabel();
         LG1 = new javax.swing.JLabel();
-        RR_bruto1 = new javax.swing.JLabel();
-        LG_bruto1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
-        jSpinner3 = new javax.swing.JSpinner();
-        jSpinner4 = new javax.swing.JSpinner();
-        jSpinner5 = new javax.swing.JSpinner();
-        jSpinner6 = new javax.swing.JSpinner();
-        jSpinner7 = new javax.swing.JSpinner();
-        jSpinner8 = new javax.swing.JSpinner();
-        jSpinner9 = new javax.swing.JSpinner();
-        jSpinner10 = new javax.swing.JSpinner();
-        jSpinner11 = new javax.swing.JSpinner();
-        jSpinner12 = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        Deadline = new javax.swing.JLabel();
+        DayDuration = new javax.swing.JLabel();
+        DeadlineSpinner = new javax.swing.JSpinner();
+        DayDurationSpinner = new javax.swing.JSpinner();
+        contentLG = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        DashBoard_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout contentRRLayout = new javax.swing.GroupLayout(contentRR);
+        contentRR.setLayout(contentRRLayout);
+        contentRRLayout.setHorizontalGroup(
+            contentRRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+        contentRRLayout.setVerticalGroup(
+            contentRRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 220, Short.MAX_VALUE)
+        );
+
+        DashBoard_Panel.add(contentRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 60, 220));
 
         Título.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Título.setText("Mercado Automotriz en Venezuela");
-        jPanel2.add(Título, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        DashBoard_Panel.add(Título, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         ganancias_bruto.setText("Ganancias en bruto:");
-        jPanel2.add(ganancias_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, -1));
+        DashBoard_Panel.add(ganancias_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
 
         gastos_op.setText("Gastos operativos:");
-        jPanel2.add(gastos_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, -1, -1));
+        DashBoard_Panel.add(gastos_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, -1, -1));
 
         utilidad.setText("Utilidad total:");
-        jPanel2.add(utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, -1));
+        DashBoard_Panel.add(utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, -1, -1));
 
         LG.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LG.setText("Lamborghini");
-        jPanel2.add(LG, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 90, -1, -1));
+        DashBoard_Panel.add(LG, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 90, -1, -1));
 
         RR.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RR.setText("Rolls Royce");
-        jPanel2.add(RR, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, -1, -1));
+        DashBoard_Panel.add(RR, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, -1, -1));
 
         LG_bruto.setText("jLabel4");
-        jPanel2.add(LG_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 150, -1, -1));
+        DashBoard_Panel.add(LG_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 150, -1, -1));
 
         RR_bruto.setText("jLabel4");
-        jPanel2.add(RR_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, -1, -1));
+        DashBoard_Panel.add(RR_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, -1, -1));
 
         RR_op.setText("jLabel4");
-        jPanel2.add(RR_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, -1, -1));
+        DashBoard_Panel.add(RR_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, -1));
 
         LG_op.setText("jLabel4");
-        jPanel2.add(LG_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, -1, -1));
+        DashBoard_Panel.add(LG_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, -1, -1));
 
         LG_utilidad.setText("jLabel4");
-        jPanel2.add(LG_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 230, -1, -1));
+        DashBoard_Panel.add(LG_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 230, -1, -1));
 
         RR_utilidad.setText("jLabel4");
-        jPanel2.add(RR_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, -1, -1));
+        DashBoard_Panel.add(RR_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, -1, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,56 +142,59 @@ public class Form extends javax.swing.JFrame {
                 GuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
+        DashBoard_Panel.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
 
         RR1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RR1.setText("Rolls Royce");
-        jPanel2.add(RR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
+        DashBoard_Panel.add(RR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
 
         LG1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LG1.setText("Lamborghini");
-        jPanel2.add(LG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+        DashBoard_Panel.add(LG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
-        RR_bruto1.setText("jLabel4");
-        jPanel2.add(RR_bruto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
-
-        LG_bruto1.setText("jLabel4");
-        jPanel2.add(LG_bruto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
-
-        jLabel2.setText("Cantidad de empleados");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jLabel2.setText("Empleados disponibles");
+        DashBoard_Panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jLabel3.setText("Creadores de chasis");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        DashBoard_Panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jLabel4.setText("Creadores de carrocerías");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        DashBoard_Panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         jLabel5.setText("Creadores de motores");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-
-        jLabel6.setText("Ensambladores");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
-        jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 40, 20));
-        jPanel2.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 40, 20));
-        jPanel2.add(jSpinner3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 40, 20));
-        jPanel2.add(jSpinner4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 40, 20));
-        jPanel2.add(jSpinner5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 40, 20));
-        jPanel2.add(jSpinner6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 40, 20));
-        jPanel2.add(jSpinner7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 40, 20));
-        jPanel2.add(jSpinner8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 40, 20));
-        jPanel2.add(jSpinner9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 40, 20));
-        jPanel2.add(jSpinner10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 40, 20));
-        jPanel2.add(jSpinner11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 40, 20));
-        jPanel2.add(jSpinner12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 40, 20));
+        DashBoard_Panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         jLabel7.setText("Creadores de ruedas");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        DashBoard_Panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         jLabel8.setText("Creadores de accesorios");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        DashBoard_Panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
-        jTabbedPane1.addTab("DashBoard", jPanel2);
+        jLabel9.setText("Ensambladores");
+        DashBoard_Panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+
+        Deadline.setText("Deadline de entrega (en segundos):");
+        DashBoard_Panel.add(Deadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+
+        DayDuration.setText("Duración del día (en segundos):");
+        DashBoard_Panel.add(DayDuration, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+        DashBoard_Panel.add(DeadlineSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 40, -1));
+        DashBoard_Panel.add(DayDurationSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 40, -1));
+
+        javax.swing.GroupLayout contentLGLayout = new javax.swing.GroupLayout(contentLG);
+        contentLG.setLayout(contentLGLayout);
+        contentLGLayout.setHorizontalGroup(
+            contentLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        contentLGLayout.setVerticalGroup(
+            contentLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        DashBoard_Panel.add(contentLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 60, 220));
+
+        jTabbedPane1.addTab("DashBoard", DashBoard_Panel);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Rolls Royce", jPanel3);
@@ -228,44 +256,36 @@ public class Form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel DashBoard_Panel;
+    private javax.swing.JLabel DayDuration;
+    private javax.swing.JSpinner DayDurationSpinner;
+    private javax.swing.JLabel Deadline;
+    private javax.swing.JSpinner DeadlineSpinner;
     private javax.swing.JButton Guardar;
     private javax.swing.JLabel LG;
     private javax.swing.JLabel LG1;
     private javax.swing.JLabel LG_bruto;
-    private javax.swing.JLabel LG_bruto1;
     private javax.swing.JLabel LG_op;
     private javax.swing.JLabel LG_utilidad;
     private javax.swing.JLabel RR;
     private javax.swing.JLabel RR1;
     private javax.swing.JLabel RR_bruto;
-    private javax.swing.JLabel RR_bruto1;
     private javax.swing.JLabel RR_op;
     private javax.swing.JLabel RR_utilidad;
     private javax.swing.JLabel Título;
+    private javax.swing.JPanel contentLG;
+    private javax.swing.JPanel contentRR;
     private javax.swing.JLabel ganancias_bruto;
     private javax.swing.JLabel gastos_op;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner10;
-    private javax.swing.JSpinner jSpinner11;
-    private javax.swing.JSpinner jSpinner12;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner4;
-    private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JSpinner jSpinner6;
-    private javax.swing.JSpinner jSpinner7;
-    private javax.swing.JSpinner jSpinner8;
-    private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel utilidad;
     // End of variables declaration//GEN-END:variables
