@@ -18,20 +18,21 @@ public class VehiclePlant {
     private long dayDuration;
     public WareHouse wareHouse;
     public Semaphore mutex;
-
+    
+    
     public VehiclePlant(String name, int maxWorkerQty, long dayDuration) {
         this.name = name;
         this.maxWorkerQty = maxWorkerQty;
         this.workers = new Worker[maxWorkerQty];
         this.dayDuration = dayDuration;
-        this.workers = new Worker[maxWorkerQty];
-        this.wareHouse = new WareHouse(5,3,4,5,6);
+        this.wareHouse = new WareHouse(5,3,4,5,6,defineTypeCar());
         this.mutex = new Semaphore(1);
         
         initializeWorkers();
+        
     }
     
-    private void initializeWorkers(){
+    public void initializeWorkers(){
         for(int i = 0; i < this.maxWorkerQty; i++){
             Worker worker = new Worker(0.34f, 20, this.dayDuration, "chasis", this);
             worker.start();
@@ -39,5 +40,14 @@ public class VehiclePlant {
         }
     }
     
+    public Vehicle defineTypeCar(){
+        Vehicle vehicle;
+        if(name.equals("Lamborghini")){
+            vehicle = new Vehicle(2,5,6,1,1,3,400000,750000);
+        }else{
+            vehicle = new Vehicle(3,6,4,2,5,6,450000,900000);
+        }
+        return vehicle;
+    }
     
 }
