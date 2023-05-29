@@ -24,7 +24,7 @@ public class Main {
         // TODO code application logic here
         
 //        Txt.leerTxt()
-        initial = new Initial(1000, 6000);
+        initial = new Initial(1, 6);
         initial.createArray("workersRR", "1", "2", "3", "1", "2", "1");
         initial.createArray("workersLG", "1", "5", "4", "3", "2", "1");
         Main.mainPage = new Form();
