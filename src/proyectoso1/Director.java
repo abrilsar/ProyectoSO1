@@ -84,7 +84,7 @@ public class Director extends Thread{
     
     public void keepWorking(){
         Random random = new Random();
-        int firstTimeChange = (int) random.nextInt((this.dayDurationInMs - (this.dayDurationInMs * 5 /(12*24))));
+        int firstTimeChange = random.nextInt(((int) this.dayDurationInMs - ((int) this.dayDurationInMs * 5 /(12*24))));
         int secondTimeChange = (int) (this.dayDurationInMs - (firstTimeChange + (this.dayDurationInMs * 5 /12)));
         try {
             this.modo = "Working";
