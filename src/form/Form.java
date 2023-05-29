@@ -24,9 +24,6 @@ public final class Form extends javax.swing.JFrame {
         WorkersQty wLG = new WorkersQty(16);
         createWorkersQty(contentRR, wRR);
         createWorkersQty(contentLG, wLG);
-        
-//        wq.setVisible(true);
-        
     }
 
        public void createWorkersQty(JPanel panel, WorkersQty wq){
@@ -178,7 +175,11 @@ public final class Form extends javax.swing.JFrame {
 
         DayDuration.setText("Duración del día (en segundos):");
         DashBoard_Panel.add(DayDuration, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+
+        DeadlineSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         DashBoard_Panel.add(DeadlineSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 40, -1));
+
+        DayDurationSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         DashBoard_Panel.add(DayDurationSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 40, -1));
 
         javax.swing.GroupLayout contentLGLayout = new javax.swing.GroupLayout(contentLG);
