@@ -71,7 +71,7 @@ public class WareHouse {
                 }
                 break;
                 
-            case "bodies" :
+            case "body" :
                 if(this.bodiesQty < this.maxBodiesQty){
                    this.bodiesQty += finishedPart;
                 }

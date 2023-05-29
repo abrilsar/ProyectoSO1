@@ -71,7 +71,7 @@ public class Director extends Thread{
     }
     
     public void deliverCars(){
-        this.modo = "Entregando Carros";
+        this.modo = "Delivering Cars";
         try {
             this.plant.getMutex().acquire();
             this.plant.getWareHouse().updateCounterDays(this.name);

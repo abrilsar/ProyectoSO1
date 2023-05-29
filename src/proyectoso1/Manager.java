@@ -58,9 +58,9 @@ public class Manager extends Thread{
     public void firstPartDay(){
         for (int i = 0; i < 32; i++) {
             if(work){
-                this.modo = "Trabajado";
+                this.modo = "Working";
             }else{
-                this.modo = "Viendo Carrera";
+                this.modo = "Watching Race";
                 Director director = this.plant.getDirector();
                 if(director.getModo().equals("Watching Manager")){
                     director.penaltyManager();
