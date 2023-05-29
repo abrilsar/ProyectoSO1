@@ -20,8 +20,8 @@ public final class Form extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        WorkersQty wRR = new WorkersQty(12);
-        WorkersQty wLG = new WorkersQty(16);
+        WorkersQty wRR = new WorkersQty(12, "workersRR");
+        WorkersQty wLG = new WorkersQty(16, "workersLG");
         createWorkersQty(contentRR, wRR);
         createWorkersQty(contentLG, wLG);
     }
@@ -422,6 +422,7 @@ public final class Form extends javax.swing.JFrame {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_GuardarActionPerformed
 
     /**

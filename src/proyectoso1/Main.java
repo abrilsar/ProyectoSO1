@@ -13,7 +13,8 @@ public class Main {
 
     public static VehiclePlant LGPlant;
     public static VehiclePlant RBPlant;
-    public static final Form mainPage = new Form();
+    public static Initial initial;
+    public static Form mainPage;
 
         
     /**
@@ -21,6 +22,12 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+//        Txt.leerTxt()
+        initial = new Initial(1000, 6000);
+        initial.createArray("workersRR", "1", "2", "3", "1", "2", "1");
+        initial.createArray("workersLG", "1", "5", "4", "3", "2", "1");
+        Main.mainPage = new Form();
         mainPage.setVisible(true);
 //        LGPlant = new VehiclePlant("Lamborghini", 16, 1000);
 //        RBPlant = new VehiclePlant("Rolls Royce", 12, 1000);
