@@ -23,7 +23,8 @@ public class Values {
     static public int carRangeLG;  
     static public double[] productionPerDayRR;     
     static public double[] productionPerDayLG;     
-    static public int penaltyMoney;    
+    static public int penaltyMoney;  
+    public static int[] maxPerCategory;
 
     public Values() {
         this.maxEmployeesRR = 12;
@@ -40,6 +41,7 @@ public class Values {
         this.productionPerDayRR = new double[]{0.5,0.5,3,3,(1/3),0.5};
         this.productionPerDayLG = new double[]{0.25,0.25,1,5,0.5,0.5};
         this.penaltyMoney = 50;
+        this.maxPerCategory = new int[]{25,20,55,35,10};
     }
     
     

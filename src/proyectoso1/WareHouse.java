@@ -18,7 +18,7 @@ public class WareHouse {
     private int standardVehicleQty;
     private int vehicleWithAccessoriesQty;
     private int standardVehicleCounter;
-    private Vehicle vehicleType;
+    private int[] vehicleType;
     private int counterDaysDelivery;
     private int deadLine;
     
@@ -27,14 +27,16 @@ public class WareHouse {
     private int maxEnginesQty;
     private int maxBodiesQty;
     private int maxAccessoriesQty;
+    private int BetweenTypeCar;
 
-    public WareHouse(int maxChasisQty, int maxWheelsQty, int maxEnginesQty, int maxBodiesQty, int maxAccessoriesQty, Vehicle vehicleType, int deadLine) {
-        this.maxChasisQty = maxChasisQty;
-        this.maxWheelsQty = maxWheelsQty;
-        this.maxEnginesQty = maxEnginesQty;
-        this.maxBodiesQty = maxBodiesQty;
-        this.maxAccessoriesQty = maxAccessoriesQty;
-        this.deadLine = deadLine;
+//    public WareHouse(int maxChasisQty, int maxWheelsQty, int maxEnginesQty, int maxBodiesQty, int maxAccessoriesQty, Vehicle vehicleType, int deadLine) {
+    public WareHouse(int[] maxCategory, int[] vehicleType, int BetweenTypeCar){    
+        this.maxChasisQty = maxCategory[0];
+        this.maxWheelsQty = maxCategory[3];
+        this.maxEnginesQty = maxCategory[2];
+        this.maxBodiesQty = maxCategory[1];
+        this.maxAccessoriesQty = maxCategory[4];
+        this.deadLine = 132;
         this.wheelsQty = 0;
         this.chasisQty = 0;
         this.enginesQty = 0;
@@ -43,6 +45,7 @@ public class WareHouse {
         this.accessoriesQty = 0;
         this.vehicleWithAccessoriesQty = 0;
         this.vehicleType = vehicleType; 
+        this.BetweenTypeCar = BetweenTypeCar;
         
     }  
  
@@ -106,7 +109,7 @@ public class WareHouse {
     }
     
     public void assembly(){
-        if(this.bodiesQty >= this.vehicleType.getBodies() && this.chasisQty >= this.vehicleType.getChasis() && this.wheelsQty >= this.vehicleType.getWheels()  && this.enginesQty >= this.vehicleType.getEngines()){   
+        if(this.chasisQty >= this.vehicleType[0] && this.bodiesQty >= this.vehicleType[1] &&  this.enginesQty >= this.vehicleType[2] && this.wheelsQty >= this.vehicleType[3]){   
             if(this.standardVehicleCounter <= this.vehicleType.getNumStandar()){
 //                Aqui se crean los carros standar
                 reduceValues();
@@ -114,10 +117,10 @@ public class WareHouse {
                 this.standardVehicleQty += 1;
             }else{
 //                
-                if(this.accessoriesQty >= this.vehicleType.getAccessories()){
+                if(this.accessoriesQty >= this.vehicleType[4]){
                     this.standardVehicleCounter = 0;
                     reduceValues();
-                    this.accessoriesQty -= this.vehicleType.getAccessories();
+                    this.accessoriesQty -= this.vehicleType[4];
                     this.vehicleWithAccessoriesQty += 1;
                 }
             }
@@ -126,10 +129,11 @@ public class WareHouse {
     }
     
     public void reduceValues(){
-        this.bodiesQty -= this.vehicleType.getBodies();
-        this.chasisQty -= this.vehicleType.getChasis();
-        this.wheelsQty -= this.vehicleType.getWheels();
-        this.enginesQty -= this.vehicleType.getEngines();
+        this.chasisQty -= this.vehicleType[0];
+        this.bodiesQty -= this.vehicleType[1];
+        this.enginesQty -= this.vehicleType[2];
+        this.wheelsQty -= this.vehicleType[3];
+
     }
 
     public int getStandardVehicleQty() {
