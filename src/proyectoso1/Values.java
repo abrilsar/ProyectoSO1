@@ -21,6 +21,7 @@ public class Values {
     static public int[] salePriceLG;
     static public int[] workersQtyRR;
     static public int[] workersQtyLG;
+    public static Initial initial;
 
     public Values() {
         this.maxRR = new int[6];        

@@ -8,6 +8,7 @@ package form;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
+import proyectoso1.Main;
 
 /**
  *
@@ -19,18 +20,20 @@ public class WorkersQty extends javax.swing.JPanel {
     private final JSpinner[] spinners;
     private int availableQty;
     private final int[] valuesSpinners;
+    private final String label;
+    
     /**
      * Creates new form WorkersQty
      * @param maxWorkerQty
+     * @param label
      */
-    public WorkersQty(int maxWorkerQty) {
+    public WorkersQty(int maxWorkerQty, String label) {
         initComponents();
-//        this.jPanel1.setOpaque(false);
-//        this.setOpaque(false);
         this.maxWorkerQty = maxWorkerQty;
         this.availableQty = maxWorkerQty;
         this.spinners = new JSpinner[6];
         this.valuesSpinners = new int[6];
+        this.label = label;
         initializeSpinners();
     }
     
@@ -64,7 +67,7 @@ public class WorkersQty extends javax.swing.JPanel {
             if ( aux != 0){
                 this.availableQty += aux;
                 availableLabel.setText(String.valueOf(this.availableQty));
-                createModelSpinner();
+                createModelSpinner(false);
             }
         });    
     }
@@ -76,27 +79,53 @@ public class WorkersQty extends javax.swing.JPanel {
         this.spinners[3] = this.wheelsQTY;
         this.spinners[4] = this.accesoriesQTY;
         this.spinners[5] = this.assemblersQTY;
+        createModelSpinner(true);
         countAvailable();
         availableLabel.setText(String.valueOf(this.availableQty));
         for (JSpinner spinner : this.spinners) {
             int a = updateValuesSpinners((int) spinner.getValue(), spinner);
             createListener(spinner);
         }
-        createModelSpinner();
+        createModelSpinner(false);
     }
     
-    public void createModelSpinner(){
-        for (JSpinner label: this.spinners){
+//    public void createModelSpinner(){
+//        for (JSpinner label: this.spinners){
+//            SpinnerNumberModel nm = new SpinnerNumberModel();
+//            nm.setMaximum(this.availableQty + (int) label.getValue());
+//            if (availableQty == 0){
+//                nm.setMaximum((int) label.getValue());
+//            }
+//            nm.setMinimum(1);
+//            nm.setValue(label.getValue());
+//            label.setModel(nm);
+//        }
+//        
+//    }
+    public void createModelSpinner(boolean first){
+        for (int i = 0; i < this.spinners.length; i++) {
             SpinnerNumberModel nm = new SpinnerNumberModel();
-            nm.setMaximum(this.availableQty + (int) label.getValue());
+            nm.setMaximum(this.availableQty + (int) this.spinners[i].getValue());
             if (availableQty == 0){
-                nm.setMaximum((int) label.getValue());
+                nm.setMaximum((int) this.spinners[i].getValue());
             }
             nm.setMinimum(1);
-            nm.setValue(label.getValue());
-            label.setModel(nm);
+            if (first){
+                if (this.label.equals("workersRR")){
+//                    System.out.println(Mai);
+//                    System.out.println("maldita sea");
+                    
+                    nm.setValue(Main.initial.workersRR[i]);
+                }else if (this.label.equals("workersLG")){
+//                    System.out.println("maldita 2");
+                    nm.setValue(Main.initial.workersLG[i]);
+                }
+            }else{
+                nm.setValue(this.spinners[i].getValue());
+            }
+            this.spinners[i].setModel(nm);
         }
-        
+       
     }
     
     /**
