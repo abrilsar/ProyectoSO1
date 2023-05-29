@@ -59,7 +59,11 @@ public class Manager extends Thread{
             if(work){
                 this.modo = "Trabajado";
             }else{
-                this.modo = "Viendo Carrera"; 
+                this.modo = "Viendo Carrera";
+                Director director = this.plant.getDirector();
+                if(director.getModo().equals("Watching Manager")){
+                    director.penaltyManager();
+                }
             }
             try {
                 sleep(this.dayDurationInMs/48);// 30 min
@@ -84,4 +88,30 @@ public class Manager extends Thread{
             Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+
+    public float getAccSalary() {
+        return accSalary;
+    }
+
+    public float getPenalty() {
+        return penalty;
+    }
+
+    public int getCountFaults() {
+        return countFaults;
+    }
+
+    public void setAccSalary(float accSalary) {
+        this.accSalary = accSalary;
+    }
+
+    public void setPenalty(float penalty) {
+        this.penalty = penalty;
+    }
+
+    public void setCountFaults(int countFaults) {
+        this.countFaults = countFaults;
+    }
+    
+    
 }

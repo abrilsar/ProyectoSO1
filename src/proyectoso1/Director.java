@@ -40,16 +40,12 @@ public class Director extends Thread{
         }
         
         while (true){
-            try {
-                payCheck();
-                boolean checkDone = checkCounterDays();
-                if (checkDone){
-                    deliverCars();
-                }else{
-                    keepWorking();
-                }
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
+            payCheck();
+            boolean checkDone = checkCounterDays();
+            if (checkDone){
+                deliverCars();
+            }else{
+                keepWorking();
             }
             }
         }
@@ -109,7 +105,18 @@ public class Director extends Thread{
         }
     }
     
-    public void checkManager(){
-        
+    public void penaltyManager(){
+        float accSalary = this.plant.getManager().getAccSalary();
+        int countFaults = this.plant.getManager().getCountFaults();
+        float penalty = this.plant.getManager().getPenalty();
+        this.plant.getManager().setAccSalary(accSalary - 50);
+        this.plant.getManager().setCountFaults(countFaults + 1);
+        this.plant.getManager().setPenalty(penalty + 50);
     }
+
+    public String getModo() {
+        return modo;
+    }
+    
+    
 }
