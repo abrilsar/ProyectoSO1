@@ -18,6 +18,8 @@ public class VehiclePlant {
     private long dayDuration;
     public WareHouse wareHouse;
     public Semaphore mutex;
+    public Director director;
+    public Manager manager;
     
     
     public VehiclePlant(String name, int maxWorkerQty, long dayDuration) {
@@ -25,8 +27,10 @@ public class VehiclePlant {
         this.maxWorkerQty = maxWorkerQty;
         this.workers = new Worker[maxWorkerQty];
         this.dayDuration = dayDuration;
-        this.wareHouse = new WareHouse(5,3,4,5,6,defineTypeCar());
+        this.wareHouse = new WareHouse(5,3,4,5,6,defineTypeCar(), 6);
         this.mutex = new Semaphore(1);
+        this.director = new Director(20,this.dayDuration, this);
+        this.manager = new Manager(30, this.dayDuration, this);
         
         initializeWorkers();
         
@@ -49,5 +53,38 @@ public class VehiclePlant {
         }
         return vehicle;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMaxWorkerQty() {
+        return maxWorkerQty;
+    }
+
+    public Worker[] getWorkers() {
+        return workers;
+    }
+
+    public long getDayDuration() {
+        return dayDuration;
+    }
+
+    public WareHouse getWareHouse() {
+        return wareHouse;
+    }
+
+    public Semaphore getMutex() {
+        return mutex;
+    }
+
+    public Director getDirector() {
+        return director;
+    }
+
+    public Manager getManager() {
+        return manager;
+    }
+    
     
 }

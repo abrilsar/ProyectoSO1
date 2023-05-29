@@ -19,6 +19,8 @@ public class WareHouse {
     private int vehicleWithAccessoriesQty;
     private int standardVehicleCounter;
     private Vehicle vehicleType;
+    private int counterDaysDelivery;
+    private int deadLine;
     
     private int maxChasisQty;
     private int maxWheelsQty;
@@ -26,13 +28,13 @@ public class WareHouse {
     private int maxBodiesQty;
     private int maxAccessoriesQty;
 
-    public WareHouse(int maxChasisQty, int maxWheelsQty, int maxEnginesQty, int maxBodiesQty, int maxAccessoriesQty, Vehicle vehicleType) {
+    public WareHouse(int maxChasisQty, int maxWheelsQty, int maxEnginesQty, int maxBodiesQty, int maxAccessoriesQty, Vehicle vehicleType, int deadLine) {
         this.maxChasisQty = maxChasisQty;
         this.maxWheelsQty = maxWheelsQty;
         this.maxEnginesQty = maxEnginesQty;
         this.maxBodiesQty = maxBodiesQty;
         this.maxAccessoriesQty = maxAccessoriesQty;
-        
+        this.deadLine = deadLine;
         this.wheelsQty = 0;
         this.chasisQty = 0;
         this.enginesQty = 0;
@@ -44,6 +46,22 @@ public class WareHouse {
         
     }  
  
+    public void updateCounterDays(String workerName){
+        switch(workerName){
+            case "Director":
+                this.counterDaysDelivery = this.deadLine;
+                this.standardVehicleQty = 0;
+                this.vehicleWithAccessoriesQty = 0;
+                this.standardVehicleCounter = 0;
+                break;
+            case "Manager":
+                this.counterDaysDelivery -= 1;
+                break;
+            default:
+                break;
+        }
+    }
+    
     public void updateStorage(String workerType, int finishedPart){
         switch (workerType){
             case "chasis" :
@@ -113,4 +131,21 @@ public class WareHouse {
         this.enginesQty -= this.vehicleType.getEngines();
     }
 
+    public int getStandardVehicleQty() {
+        return standardVehicleQty;
+    }
+
+    public int getStandardVehicleCounter() {
+        return standardVehicleCounter;
+    }
+
+    public int getCounterDaysDelivery() {
+        return counterDaysDelivery;
+    }
+
+    public int getDeadLine() {
+        return deadLine;
+    }
+
+    
 }   
