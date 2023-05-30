@@ -131,6 +131,7 @@ public class WorkersQtySpinner extends javax.swing.JPanel {
         accesoriesQTY = new javax.swing.JSpinner();
         assemblersQTY = new javax.swing.JSpinner();
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         availableLabel.setText("jLabel4");

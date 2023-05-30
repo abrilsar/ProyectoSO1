@@ -129,12 +129,6 @@ public final class Form extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -170,6 +164,7 @@ public final class Form extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        DashBoard_Panel.setBackground(new java.awt.Color(255, 255, 255));
         DashBoard_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout contentRRLayout = new javax.swing.GroupLayout(contentRR);
@@ -288,9 +283,11 @@ public final class Form extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("DashBoard", DashBoard_Panel);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Rolls Royce", jPanel3);
 
+        LGdashboard.setBackground(new java.awt.Color(255, 255, 255));
         LGdashboard.setRequestFocusEnabled(false);
         LGdashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -315,24 +312,6 @@ public final class Form extends javax.swing.JFrame {
 
         jLabel14.setText("Ensambladores");
         LGdashboard.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
-
-        jLabel1.setText("jLabel1");
-        LGdashboard.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, -1, -1));
-
-        jLabel15.setText("jLabel1");
-        LGdashboard.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, -1, -1));
-
-        jLabel16.setText("jLabel1");
-        LGdashboard.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, -1, -1));
-
-        jLabel17.setText("jLabel1");
-        LGdashboard.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, -1, -1));
-
-        jLabel18.setText("jLabel1");
-        LGdashboard.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, -1, -1));
-
-        jLabel19.setText("jLabel1");
-        LGdashboard.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 430, -1, -1));
 
         jLabel21.setText("Chasis");
         LGdashboard.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
@@ -533,17 +512,11 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JPanel contentRR;
     private javax.swing.JLabel ganancias_bruto;
     private javax.swing.JLabel gastos_op;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
