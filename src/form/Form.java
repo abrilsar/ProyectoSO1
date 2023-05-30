@@ -7,6 +7,9 @@ package form;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+import proyectoso1.Main;
 /**
  *
  * @author paola
@@ -20,10 +23,12 @@ public final class Form extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        WorkersQty wRR = new WorkersQty(12);
-        WorkersQty wLG = new WorkersQty(16);
+        WorkersQty wRR = new WorkersQty(12, "workersRR");
+        WorkersQty wLG = new WorkersQty(16, "workersLG");
         createWorkersQty(contentRR, wRR);
         createWorkersQty(contentLG, wLG);
+        createModelSpinner(DayDurationSpinner, "DayDurationSpinner");
+        createModelSpinner(DeadlineSpinner, "DeadlineSpinner");
     }
 
        public void createWorkersQty(JPanel panel, WorkersQty wq){
@@ -35,6 +40,20 @@ public final class Form extends javax.swing.JFrame {
             panel.repaint();
            
        }
+       
+    public void createModelSpinner(JSpinner spinner, String label){
+        SpinnerNumberModel nm = new SpinnerNumberModel();
+//        nm.setMaximum();
+        nm.setMinimum(1);
+        if (label.equals("DayDurationSpinner")){
+            nm.setValue(Main.initial.dayDuration);
+        }else if (label.equals("DeadlineSpinner")){
+            nm.setValue(Main.initial.deadLine);
+        }
+        spinner.setModel(nm);
+       
+        
+    }    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -414,6 +433,7 @@ public final class Form extends javax.swing.JFrame {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_GuardarActionPerformed
 
     /**

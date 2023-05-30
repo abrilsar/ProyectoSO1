@@ -10,21 +10,24 @@ package proyectoso1;
  * @author paola
  */
 public class Values {
-    static public int maxEmployeesRR;
-    static public int maxEmployeesLG;
-    static public String[] types;
-    static public String[] modos;
-    static public int[] vehicleRR;
-    static public int[] vehicleLG;
-    static public int[] salarys;
-    static public int[] salePriceRR;
-    static public int[] salePriceLG;
-    static public int carRangeRR;
-    static public int carRangeLG;  
-    static public double[] productionPerDayRR;     
-    static public double[] productionPerDayLG;     
-    static public int penaltyMoney;  
+    public static int maxEmployeesRR;
+    public static int maxEmployeesLG;
+    public static String[] types;
+    public static String[] modos;
+    public static int[] vehicleRR;
+    public static int[] vehicleLG;
+    public static int[] salarys;
+    public static int[] salePriceRR;
+    public static int[] salePriceLG;
+    public static int carRangeRR;
+    public static int carRangeLG;  
+    public static double[] productionPerDayRR;     
+    public static double[] productionPerDayLG;     
+    public static int penaltyMoney;  
     public static int[] maxPerCategory;
+    public static int[] workersQtyRR;
+    public static int[] workersQtyLG;
+    public static Initial initial;
 
     public Values() {
         this.maxEmployeesRR = 12;
