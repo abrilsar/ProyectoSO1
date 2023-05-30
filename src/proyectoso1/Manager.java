@@ -48,6 +48,7 @@ public class Manager extends Thread{
             payCheck();
             firstPartDay();
             updateCounter();
+            
         }
     }
     
@@ -58,14 +59,13 @@ public class Manager extends Thread{
     public void firstPartDay(){
         for (int i = 0; i < 32; i++) {
             if(work){
-                this.modo = "Working";
+                this.modo = Values.modos[1];
             }else{
-                this.modo = "Watching Race";
-                
-//                Director director = this.plant.getDirector();
-//                if(director.getModo().equals("Watching Manager")){
-//                    director.penaltyManager();
-//                }
+                this.modo = Values.modos[0];
+                Director director = this.plant.getDirector();
+                if(director.getModo().equals(Values.modos[2])){
+                    director.penaltyManager();
+                }
             }
 
             try {
@@ -81,15 +81,21 @@ public class Manager extends Thread{
     
     public void updateCounter(){
         try {
-            plant.getMutex().acquire();
-            plant.getWareHouse().updateCounterDays(this.name);
-            plant.mutex.release();
+            plant.getMutexCounter().acquire();
+            decreasecount();
+            plant.getMutexCounter().release();
             sleep(this.dayDurationInMs/3); //8 horas
         } catch (InterruptedException ex) {
             Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
+    
+    public void decreasecount(){
+        int counter = this.plant.getCounterDaysDelivery();
+        this.plant.setCounterDaysDelivery(counter - 1);
+    }
+    
     public float getAccSalary() {
         return accSalary;
     }

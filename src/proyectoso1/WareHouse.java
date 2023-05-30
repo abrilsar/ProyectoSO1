@@ -19,7 +19,8 @@ public class WareHouse {
     private int vehicleWithAccessoriesQty;
     private int standardVehicleCounter;
     private int[] vehicleType;
-    private int counterDaysDelivery;
+   
+    
     private int maxChasisQty;
     private int maxWheelsQty;
     private int maxEnginesQty;
@@ -27,7 +28,6 @@ public class WareHouse {
     private int maxAccessoriesQty;
     private int betweenTypeCar;
 
-//    public WareHouse(int maxChasisQty, int maxWheelsQty, int maxEnginesQty, int maxBodiesQty, int maxAccessoriesQty, Vehicle vehicleType, int deadLine) {
     public WareHouse(int[] maxCategory, int[] vehicleType, int betweenTypeCar){    
         this.maxChasisQty = maxCategory[0];
         this.maxWheelsQty = maxCategory[3];
@@ -43,24 +43,13 @@ public class WareHouse {
         this.vehicleWithAccessoriesQty = 0;
         this.vehicleType = vehicleType; 
         this.betweenTypeCar = betweenTypeCar;
-        this.counterDaysDelivery = Main.initial.deadLine;
         
     }  
  
-    public void updateCounterDays(String workerName){
-        switch(workerName){
-            case "Director":
-                this.counterDaysDelivery = Main.initial.deadLine;
-                this.standardVehicleQty = 0;
-                this.vehicleWithAccessoriesQty = 0;
-                this.standardVehicleCounter = 0;
-                break;
-            case "Manager":
-                this.counterDaysDelivery -= 1;
-                break;
-            default:
-                break;
-        }
+    public void removeCars(){
+        this.standardVehicleQty = 0;
+        this.vehicleWithAccessoriesQty = 0;
+        this.standardVehicleCounter = 0;       
     }
     
     public void updateStorage(String workerType, int finishedPart){
@@ -68,7 +57,7 @@ public class WareHouse {
             case "chasis" :
                 if(this.chasisQty < this.maxChasisQty){
                     this.chasisQty += finishedPart;
-                    System.out.println("Chasis agregado");
+                    
                 }
                 break;
                 
@@ -142,9 +131,7 @@ public class WareHouse {
         return standardVehicleCounter;
     }
 
-    public int getCounterDaysDelivery() {
-        return counterDaysDelivery;
-    }
+
 
     
 
