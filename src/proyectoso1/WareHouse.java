@@ -20,8 +20,6 @@ public class WareHouse {
     private int standardVehicleCounter;
     private int[] vehicleType;
     private int counterDaysDelivery;
-    private int deadLine;
-    
     private int maxChasisQty;
     private int maxWheelsQty;
     private int maxEnginesQty;
@@ -30,13 +28,12 @@ public class WareHouse {
     private int betweenTypeCar;
 
 //    public WareHouse(int maxChasisQty, int maxWheelsQty, int maxEnginesQty, int maxBodiesQty, int maxAccessoriesQty, Vehicle vehicleType, int deadLine) {
-    public WareHouse(int[] maxCategory, int[] vehicleType, int BetweenTypeCar){    
+    public WareHouse(int[] maxCategory, int[] vehicleType, int betweenTypeCar){    
         this.maxChasisQty = maxCategory[0];
         this.maxWheelsQty = maxCategory[3];
         this.maxEnginesQty = maxCategory[2];
         this.maxBodiesQty = maxCategory[1];
         this.maxAccessoriesQty = maxCategory[4];
-        this.deadLine = 132;
         this.wheelsQty = 0;
         this.chasisQty = 0;
         this.enginesQty = 0;
@@ -45,14 +42,15 @@ public class WareHouse {
         this.accessoriesQty = 0;
         this.vehicleWithAccessoriesQty = 0;
         this.vehicleType = vehicleType; 
-        this.betweenTypeCar = BetweenTypeCar;
+        this.betweenTypeCar = betweenTypeCar;
+        this.counterDaysDelivery = Main.initial.deadLine;
         
     }  
  
     public void updateCounterDays(String workerName){
         switch(workerName){
             case "Director":
-                this.counterDaysDelivery = this.deadLine;
+                this.counterDaysDelivery = Main.initial.deadLine;
                 this.standardVehicleQty = 0;
                 this.vehicleWithAccessoriesQty = 0;
                 this.standardVehicleCounter = 0;
@@ -148,9 +146,7 @@ public class WareHouse {
         return counterDaysDelivery;
     }
 
-    public int getDeadLine() {
-        return deadLine;
-    }
+    
 
     
 }   

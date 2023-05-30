@@ -61,22 +61,22 @@ public class Manager extends Thread{
                 this.modo = "Working";
             }else{
                 this.modo = "Watching Race";
-                Director director = this.plant.getDirector();
-                if(director.getModo().equals("Watching Manager")){
-                    director.penaltyManager();
-                }
+                
+//                Director director = this.plant.getDirector();
+//                if(director.getModo().equals("Watching Manager")){
+//                    director.penaltyManager();
+//                }
             }
+
             try {
                 sleep(this.dayDurationInMs/48);// 30 min
             } catch (InterruptedException ex) {
                 Logger.getLogger(Manager.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            work = !work;
+            work = !work; 
         }
- 
-        
-        
+        this.modo = "Working";
     }
     
     public void updateCounter(){

@@ -43,11 +43,13 @@ public class Director extends Thread{
         while (true){
             payCheck();
             boolean checkDone = checkCounterDays();
-            if (checkDone){
-                deliverCars();
-            }else{
-                keepWorking();
-            }
+            System.out.println(checkDone);
+//            if (checkDone){
+//                deliverCars();
+//            }else{
+//                keepWorking();
+//            }
+            
             }
         }
     

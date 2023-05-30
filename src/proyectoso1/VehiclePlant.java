@@ -27,10 +27,11 @@ public class VehiclePlant {
         this.maxWorkerQty = maxWorkerQty;
         this.workers = new Worker[maxWorkerQty];
         this.dayDuration = dayDuration;
-        this.wareHouse = new WareHouse(Values.maxPerCategory, defineTypeCar(), BetweenTypeCar());
+        this.wareHouse = new WareHouse(Values.maxPerCategory, defineTypeCar(), betweenTypeCar());
+
         this.mutex = new Semaphore(1);
-        this.director = new Director(Values.salarys[6],this.dayDuration, this);
-        this.director.start();
+//        this.director = new Director(Values.salarys[6],this.dayDuration, this);
+//        this.director.start();
         this.manager = new Manager(Values.salarys[7], this.dayDuration, this);
         this.manager.start();
         initializeWorkers();
@@ -83,7 +84,7 @@ public class VehiclePlant {
         return vehicle;
     }
     
-    public int BetweenTypeCar(){
+    public int betweenTypeCar(){
         int num;
         if(name.equals("Lamborghini")){
             num = Values.carRangeLG;
