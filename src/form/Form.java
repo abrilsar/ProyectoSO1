@@ -16,6 +16,8 @@ import proyectoso1.Main;
  */
 public final class Form extends javax.swing.JFrame {
 
+    private WorkersQty wRR;
+    private WorkersQty wLG;
     /**
      * Creates new form Form
      */
@@ -23,8 +25,10 @@ public final class Form extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        WorkersQty wRR = new WorkersQty(12, "workersRR");
-        WorkersQty wLG = new WorkersQty(16, "workersLG");
+        this.wRR = new WorkersQty(12, "workersRR");
+        this.wLG = new WorkersQty(16, "workersLG");
+//        WorkersQty wRR = new WorkersQty(12, "workersRR");
+//        WorkersQty wLG = new WorkersQty(16, "workersLG");
         createWorkersQty(contentRR, wRR);
         createWorkersQty(contentLG, wLG);
         createModelSpinner(DayDurationSpinner, "DayDurationSpinner");
@@ -119,7 +123,7 @@ public final class Form extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
+        maxC = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
@@ -344,8 +348,8 @@ public final class Form extends javax.swing.JFrame {
         jLabel32.setText("jLabel1");
         jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
-        jLabel33.setText("jLabel1");
-        jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, -1, -1));
+        maxC.setText("jLabel1");
+        jPanel4.add(maxC, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, -1, -1));
 
         jLabel34.setText("jLabel1");
         jPanel4.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, -1));
@@ -433,6 +437,13 @@ public final class Form extends javax.swing.JFrame {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
+        Main.initial.setDayDuration((int)DayDurationSpinner.getValue());
+        Main.initial.setDeadLine((int)DeadlineSpinner.getValue());
+        Main.initial.setWorkersRR(this.wRR.valuesSpinners);
+        Main.initial.setWorkersLG(this.wLG.valuesSpinners);
+        for (int i = 0; i < Main.initial.workersRR.length; i++) {
+            System.out.println(Main.initial.workersRR[i]);
+        }
         
     }//GEN-LAST:event_GuardarActionPerformed
 
@@ -520,7 +531,6 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
@@ -551,6 +561,7 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel maxC;
     private javax.swing.JLabel utilidad;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,7 +19,7 @@ public class WorkersQty extends javax.swing.JPanel {
     private final int maxWorkerQty;
     private final JSpinner[] spinners;
     private int availableQty;
-    private final int[] valuesSpinners;
+    public final int[] valuesSpinners;
     private final String label;
     
     /**
@@ -36,6 +36,7 @@ public class WorkersQty extends javax.swing.JPanel {
         this.label = label;
         initializeSpinners();
     }
+    
     
     public int updateValuesSpinners(int value, JSpinner spinner){
         for (int i = 0; i < this.spinners.length; i++) {

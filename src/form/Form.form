@@ -643,7 +643,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel33">
+            <Component class="javax.swing.JLabel" name="maxC">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>

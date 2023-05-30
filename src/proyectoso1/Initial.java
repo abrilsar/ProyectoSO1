@@ -42,5 +42,37 @@ public class Initial {
         
     }
 
+    public int getDayDuration() {
+        return dayDuration;
+    }
+
+    public int getDeadLine() {
+        return deadLine;
+    }
+
+    public int[] getWorkersRR() {
+        return workersRR;
+    }
+
+    public int[] getWorkersLG() {
+        return workersLG;
+    }
+
+    public void setDayDuration(int dayDuration) {
+        this.dayDuration = dayDuration;
+    }
+
+    public void setDeadLine(int deadLine) {
+        this.deadLine = deadLine;
+    }
+
+    public void setWorkersRR(int[] workersRR) {
+        this.workersRR = workersRR;
+    }
+
+    public void setWorkersLG(int[] workersLG) {
+        this.workersLG = workersLG;
+    }
+
     
 }

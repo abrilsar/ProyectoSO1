@@ -110,20 +110,20 @@ public class WareHouse {
     
     public void assembly(){
         if(this.chasisQty >= this.vehicleType[0] && this.bodiesQty >= this.vehicleType[1] &&  this.enginesQty >= this.vehicleType[2] && this.wheelsQty >= this.vehicleType[3]){   
-            if(this.standardVehicleCounter <= this.vehicleType.getNumStandar()){
-//                Aqui se crean los carros standar
-                reduceValues();
-                this.standardVehicleCounter += 1;
-                this.standardVehicleQty += 1;
-            }else{
-//                
-                if(this.accessoriesQty >= this.vehicleType[4]){
-                    this.standardVehicleCounter = 0;
-                    reduceValues();
-                    this.accessoriesQty -= this.vehicleType[4];
-                    this.vehicleWithAccessoriesQty += 1;
-                }
-            }
+//            if(this.standardVehicleCounter <= this.vehicleType.getNumStandar()){
+////                Aqui se crean los carros standar
+//                reduceValues();
+//                this.standardVehicleCounter += 1;
+//                this.standardVehicleQty += 1;
+//            }else{
+////                
+//                if(this.accessoriesQty >= this.vehicleType[4]){
+//                    this.standardVehicleCounter = 0;
+//                    reduceValues();
+//                    this.accessoriesQty -= this.vehicleType[4];
+//                    this.vehicleWithAccessoriesQty += 1;
+//                }
+//            }
             
         }
     }
