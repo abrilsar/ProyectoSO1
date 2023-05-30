@@ -29,8 +29,8 @@ public class Main {
         initial.createArray("workersLG", "1", "5", "4", "3", "2", "1");
         Main.mainPage = new Form();
         mainPage.setVisible(true);
-//        LGPlant = new VehiclePlant("Lamborghini", 16, 1000);
-//        RBPlant = new VehiclePlant("Rolls Royce", 12, 1000);
+        LGPlant = new VehiclePlant("Lamborghini", Values.maxEmployeesLG, 1000);
+        RBPlant = new VehiclePlant("Rolls Royce", Values.maxEmployeesRR, 1000);
     }
     
 }

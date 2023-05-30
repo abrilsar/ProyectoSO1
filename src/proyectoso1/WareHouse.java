@@ -15,30 +15,56 @@ public class WareHouse {
     private int enginesQty;
     private int bodiesQty;
     private int accessoriesQty;
-    private int vehicleQty;
+    private int standardVehicleQty;
+    private int vehicleWithAccessoriesQty;
+    private int standardVehicleCounter;
+    private int[] vehicleType;
+    private int counterDaysDelivery;
+    private int deadLine;
     
     private int maxChasisQty;
     private int maxWheelsQty;
     private int maxEnginesQty;
     private int maxBodiesQty;
     private int maxAccessoriesQty;
+    private int BetweenTypeCar;
 
-    public WareHouse(int maxChasisQty, int maxWheelsQty, int maxEnginesQty, int maxBodiesQty, int maxAccessoriesQty) {
-        this.maxChasisQty = maxChasisQty;
-        this.maxWheelsQty = maxWheelsQty;
-        this.maxEnginesQty = maxEnginesQty;
-        this.maxBodiesQty = maxBodiesQty;
-        this.maxAccessoriesQty = maxAccessoriesQty;
-        
+//    public WareHouse(int maxChasisQty, int maxWheelsQty, int maxEnginesQty, int maxBodiesQty, int maxAccessoriesQty, Vehicle vehicleType, int deadLine) {
+    public WareHouse(int[] maxCategory, int[] vehicleType, int BetweenTypeCar){    
+        this.maxChasisQty = maxCategory[0];
+        this.maxWheelsQty = maxCategory[3];
+        this.maxEnginesQty = maxCategory[2];
+        this.maxBodiesQty = maxCategory[1];
+        this.maxAccessoriesQty = maxCategory[4];
+        this.deadLine = 132;
         this.wheelsQty = 0;
         this.chasisQty = 0;
         this.enginesQty = 0;
         this.bodiesQty = 0;
-        this.vehicleQty =0;
+        this.standardVehicleQty = 0;
         this.accessoriesQty = 0;
+        this.vehicleWithAccessoriesQty = 0;
+        this.vehicleType = vehicleType; 
+        this.BetweenTypeCar = BetweenTypeCar;
         
+    }  
+ 
+    public void updateCounterDays(String workerName){
+        switch(workerName){
+            case "Director":
+                this.counterDaysDelivery = this.deadLine;
+                this.standardVehicleQty = 0;
+                this.vehicleWithAccessoriesQty = 0;
+                this.standardVehicleCounter = 0;
+                break;
+            case "Manager":
+                this.counterDaysDelivery -= 1;
+                break;
+            default:
+                break;
+        }
     }
-
+    
     public void updateStorage(String workerType, int finishedPart){
         switch (workerType){
             case "chasis" :
@@ -48,7 +74,7 @@ public class WareHouse {
                 }
                 break;
                 
-            case "bodies" :
+            case "body" :
                 if(this.bodiesQty < this.maxBodiesQty){
                    this.bodiesQty += finishedPart;
                 }
@@ -72,9 +98,59 @@ public class WareHouse {
                    this.accessoriesQty += finishedPart;
                 }    
                 break;
-           
+            
+            case "assembler":
+                assembly();
+                break;
+                
             default:
                 break;
         }
     }
+    
+    public void assembly(){
+        if(this.chasisQty >= this.vehicleType[0] && this.bodiesQty >= this.vehicleType[1] &&  this.enginesQty >= this.vehicleType[2] && this.wheelsQty >= this.vehicleType[3]){   
+            if(this.standardVehicleCounter <= this.vehicleType.getNumStandar()){
+//                Aqui se crean los carros standar
+                reduceValues();
+                this.standardVehicleCounter += 1;
+                this.standardVehicleQty += 1;
+            }else{
+//                
+                if(this.accessoriesQty >= this.vehicleType[4]){
+                    this.standardVehicleCounter = 0;
+                    reduceValues();
+                    this.accessoriesQty -= this.vehicleType[4];
+                    this.vehicleWithAccessoriesQty += 1;
+                }
+            }
+            
+        }
+    }
+    
+    public void reduceValues(){
+        this.chasisQty -= this.vehicleType[0];
+        this.bodiesQty -= this.vehicleType[1];
+        this.enginesQty -= this.vehicleType[2];
+        this.wheelsQty -= this.vehicleType[3];
+
+    }
+
+    public int getStandardVehicleQty() {
+        return standardVehicleQty;
+    }
+
+    public int getStandardVehicleCounter() {
+        return standardVehicleCounter;
+    }
+
+    public int getCounterDaysDelivery() {
+        return counterDaysDelivery;
+    }
+
+    public int getDeadLine() {
+        return deadLine;
+    }
+
+    
 }   

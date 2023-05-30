@@ -10,8 +10,8 @@ package proyectoso1;
  * @author paola
  */
 public class Values {
-    static public int[] maxRR;
-    static public int[] maxLG;
+    static public int maxEmployeesRR;
+    static public int maxEmployeesLG;
     static public String[] types;
     static public String[] modos;
     static public int[] vehicleRR;
@@ -19,21 +19,28 @@ public class Values {
     static public int[] salarys;
     static public int[] salePriceRR;
     static public int[] salePriceLG;
-    static public int[] workersQtyRR;
-    static public int[] workersQtyLG;
-    public static Initial initial;
+    static public int carRangeRR;
+    static public int carRangeLG;  
+    static public double[] productionPerDayRR;     
+    static public double[] productionPerDayLG;     
+    static public int penaltyMoney;  
+    public static int[] maxPerCategory;
 
     public Values() {
-        this.maxRR = new int[6];        
-        this.maxLG = new int[6];    
-        this.types = new String[8];
-        this.modos = new String[4];
-        this.vehicleRR = new int[5];
-        this.vehicleLG = new int[5];
-        this.salarys = new int[8];
-        this.salePriceRR = new int[8];
+        this.maxEmployeesRR = 12;
+        this.maxEmployeesLG = 16;
+        this.types = new String[]{"Chasis", "Body", "Engine", "Wheels", "Accessories", "Assembler", "Director", "Manager"};
+        this.modos = new String[]{"Watching Race","Working", "Watching Manager", "Delivering Cars"};
+        this.vehicleLG = new int[]{2,1,6,5,1};
+        this.vehicleRR = new int[]{3,2,4,6,5};
+        this.salarys = new int[]{10,13,20,8,17,25,20,30};
+        this.salePriceRR = new int[]{450,900};
+        this.salePriceLG = new int[]{400,750};
+        this.carRangeLG = 3;
+        this.carRangeRR = 6;
+        this.productionPerDayRR = new double[]{0.5,0.5,3,3,(1/3),0.5};
+        this.productionPerDayLG = new double[]{0.25,0.25,1,5,0.5,0.5};
+        this.penaltyMoney = 50;
+        this.maxPerCategory = new int[]{25,20,55,35,10};
     }
-    
-    
-    
 }

@@ -21,7 +21,9 @@ public class Worker extends Thread{
     private String type;
     private float productionCounter;
     private VehiclePlant plant;
-
+  
+    
+    
     public Worker(float productionPerDay, float salary, long dayDurationInMs, String type, VehiclePlant plant) {
         this.productionPerDay = productionPerDay;
         this.salary = salary;
@@ -56,9 +58,7 @@ public class Worker extends Thread{
         }
     
     public void payCheck(){
-        this.accSalary += this.salary;
-        System.out.println("Pagando salario");
-        
+        this.accSalary += (this.salary * 24);
     }
     
     public void produceForTheDay(){
