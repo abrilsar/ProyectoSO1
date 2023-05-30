@@ -51,11 +51,12 @@ public class VehiclePlant {
     }
     
     public int[] defineTypeWorker(){
-        int[] list;
+//      int[] list;
+        int[] list = new int[]{2,3,4,3,3,3};
         if(name.equals("Lamborghini")){
-            list = Main.initial.workersLG;
+//            list = Main.initial.workersLG;
         }else{
-            list =  Main.initial.workersRR;
+//            list =  Main.initial.workersRR;
         }
         return list;
     }

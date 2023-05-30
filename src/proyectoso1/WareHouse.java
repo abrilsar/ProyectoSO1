@@ -27,7 +27,7 @@ public class WareHouse {
     private int maxEnginesQty;
     private int maxBodiesQty;
     private int maxAccessoriesQty;
-    private int BetweenTypeCar;
+    private int betweenTypeCar;
 
 //    public WareHouse(int maxChasisQty, int maxWheelsQty, int maxEnginesQty, int maxBodiesQty, int maxAccessoriesQty, Vehicle vehicleType, int deadLine) {
     public WareHouse(int[] maxCategory, int[] vehicleType, int BetweenTypeCar){    
@@ -45,7 +45,7 @@ public class WareHouse {
         this.accessoriesQty = 0;
         this.vehicleWithAccessoriesQty = 0;
         this.vehicleType = vehicleType; 
-        this.BetweenTypeCar = BetweenTypeCar;
+        this.betweenTypeCar = BetweenTypeCar;
         
     }  
  
@@ -110,7 +110,7 @@ public class WareHouse {
     
     public void assembly(){
         if(this.chasisQty >= this.vehicleType[0] && this.bodiesQty >= this.vehicleType[1] &&  this.enginesQty >= this.vehicleType[2] && this.wheelsQty >= this.vehicleType[3]){   
-            if(this.standardVehicleCounter <= this.vehicleType.getNumStandar()){
+            if(this.standardVehicleCounter <= this.betweenTypeCar){
 //                Aqui se crean los carros standar
                 reduceValues();
                 this.standardVehicleCounter += 1;
