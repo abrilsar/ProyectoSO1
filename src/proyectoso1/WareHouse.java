@@ -20,23 +20,20 @@ public class WareHouse {
     private int standardVehicleCounter;
     private int[] vehicleType;
     private int counterDaysDelivery;
-    private int deadLine;
-    
     private int maxChasisQty;
     private int maxWheelsQty;
     private int maxEnginesQty;
     private int maxBodiesQty;
     private int maxAccessoriesQty;
-    private int BetweenTypeCar;
+    private int betweenTypeCar;
 
 //    public WareHouse(int maxChasisQty, int maxWheelsQty, int maxEnginesQty, int maxBodiesQty, int maxAccessoriesQty, Vehicle vehicleType, int deadLine) {
-    public WareHouse(int[] maxCategory, int[] vehicleType, int BetweenTypeCar){    
+    public WareHouse(int[] maxCategory, int[] vehicleType, int betweenTypeCar){    
         this.maxChasisQty = maxCategory[0];
         this.maxWheelsQty = maxCategory[3];
         this.maxEnginesQty = maxCategory[2];
         this.maxBodiesQty = maxCategory[1];
         this.maxAccessoriesQty = maxCategory[4];
-        this.deadLine = 132;
         this.wheelsQty = 0;
         this.chasisQty = 0;
         this.enginesQty = 0;
@@ -45,14 +42,15 @@ public class WareHouse {
         this.accessoriesQty = 0;
         this.vehicleWithAccessoriesQty = 0;
         this.vehicleType = vehicleType; 
-        this.BetweenTypeCar = BetweenTypeCar;
+        this.betweenTypeCar = betweenTypeCar;
+        this.counterDaysDelivery = Main.initial.deadLine;
         
     }  
  
     public void updateCounterDays(String workerName){
         switch(workerName){
             case "Director":
-                this.counterDaysDelivery = this.deadLine;
+                this.counterDaysDelivery = Main.initial.deadLine;
                 this.standardVehicleQty = 0;
                 this.vehicleWithAccessoriesQty = 0;
                 this.standardVehicleCounter = 0;
@@ -110,21 +108,20 @@ public class WareHouse {
     
     public void assembly(){
         if(this.chasisQty >= this.vehicleType[0] && this.bodiesQty >= this.vehicleType[1] &&  this.enginesQty >= this.vehicleType[2] && this.wheelsQty >= this.vehicleType[3]){   
-//            if(this.standardVehicleCounter <= this.vehicleType.getNumStandar()){
-////                Aqui se crean los carros standar
-//                reduceValues();
-//                this.standardVehicleCounter += 1;
-//                this.standardVehicleQty += 1;
-//            }else{
-////                
-//                if(this.accessoriesQty >= this.vehicleType[4]){
-//                    this.standardVehicleCounter = 0;
-//                    reduceValues();
-//                    this.accessoriesQty -= this.vehicleType[4];
-//                    this.vehicleWithAccessoriesQty += 1;
-//                }
-//            }
-            
+            if(this.standardVehicleCounter <= this.betweenTypeCar){
+//                Aqui se crean los carros standar
+                reduceValues();
+                this.standardVehicleCounter += 1;
+                this.standardVehicleQty += 1;
+            }else{
+//                
+                if(this.accessoriesQty >= this.vehicleType[4]){
+                    this.standardVehicleCounter = 0;
+                    reduceValues();
+                    this.accessoriesQty -= this.vehicleType[4];
+                    this.vehicleWithAccessoriesQty += 1;
+                }
+            }
         }
     }
     
@@ -148,9 +145,7 @@ public class WareHouse {
         return counterDaysDelivery;
     }
 
-    public int getDeadLine() {
-        return deadLine;
-    }
+    
 
     
 }   

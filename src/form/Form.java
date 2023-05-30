@@ -18,6 +18,7 @@ public final class Form extends javax.swing.JFrame {
 
     private WorkersQty wRR;
     private WorkersQty wLG;
+    private MaxView maxView; 
     /**
      * Creates new form Form
      */
@@ -27,23 +28,31 @@ public final class Form extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.wRR = new WorkersQty(12, "workersRR");
         this.wLG = new WorkersQty(16, "workersLG");
-//        WorkersQty wRR = new WorkersQty(12, "workersRR");
-//        WorkersQty wLG = new WorkersQty(16, "workersLG");
+        this.maxView = new MaxView();
         createWorkersQty(contentRR, wRR);
         createWorkersQty(contentLG, wLG);
         createModelSpinner(DayDurationSpinner, "DayDurationSpinner");
         createModelSpinner(DeadlineSpinner, "DeadlineSpinner");
+        createMax(maxLG);
+        
     }
-
-       public void createWorkersQty(JPanel panel, WorkersQty wq){
-            wq.setSize(60, 220);
-            wq.setLocation(0, 0);
-            panel.removeAll();
-            panel.add(wq, BorderLayout.CENTER);
-            panel.revalidate();
-            panel.repaint();
-           
-       }
+    
+    public void createMax(JPanel panel){
+        maxView.setSize(60,220);
+        maxView.setLocation(0,0);
+        panel.removeAll();
+        panel.add(maxView, BorderLayout.CENTER);
+        panel.revalidate();
+        panel.repaint();
+    }
+    public void createWorkersQty(JPanel panel, WorkersQty wq){
+        wq.setSize(60, 220);
+        wq.setLocation(0, 0);
+        panel.removeAll();
+        panel.add(wq, BorderLayout.CENTER);
+        panel.revalidate();
+        panel.repaint();
+    }
        
     public void createModelSpinner(JSpinner spinner, String label){
         SpinnerNumberModel nm = new SpinnerNumberModel();
@@ -98,7 +107,7 @@ public final class Form extends javax.swing.JFrame {
         DayDurationSpinner = new javax.swing.JSpinner();
         contentLG = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        LGdashboard = new javax.swing.JPanel();
         Título1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -112,7 +121,6 @@ public final class Form extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -123,11 +131,6 @@ public final class Form extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        maxC = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -147,6 +150,7 @@ public final class Form extends javax.swing.JFrame {
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
+        maxLG = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -272,163 +276,158 @@ public final class Form extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Rolls Royce", jPanel3);
 
-        jPanel4.setRequestFocusEnabled(false);
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        LGdashboard.setRequestFocusEnabled(false);
+        LGdashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Título1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Título1.setText("Lamborghini");
-        jPanel4.add(Título1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+        LGdashboard.add(Título1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
         jLabel6.setText("Creadores de chasis");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        LGdashboard.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         jLabel10.setText("Creadores de carrocerías");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+        LGdashboard.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
         jLabel11.setText("Creadores de motores");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        LGdashboard.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
         jLabel12.setText("Creadores de ruedas");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        LGdashboard.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         jLabel13.setText("Creadores de accesorios");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        LGdashboard.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         jLabel14.setText("Ensambladores");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        LGdashboard.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         jLabel1.setText("jLabel1");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
+        LGdashboard.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
         jLabel15.setText("jLabel1");
-        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
+        LGdashboard.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
 
         jLabel16.setText("jLabel1");
-        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
+        LGdashboard.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
 
         jLabel17.setText("jLabel1");
-        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
+        LGdashboard.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
 
         jLabel18.setText("jLabel1");
-        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
+        LGdashboard.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
 
         jLabel19.setText("jLabel1");
-        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, -1));
-
-        jLabel20.setText("Máximo");
-        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, -1, -1));
+        LGdashboard.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, -1));
 
         jLabel21.setText("Chasis");
-        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
+        LGdashboard.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
 
         jLabel22.setText("Carrocerías");
-        jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
+        LGdashboard.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
 
         jLabel23.setText("Motores");
-        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
+        LGdashboard.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
 
         jLabel24.setText("Ruedas");
-        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, -1));
+        LGdashboard.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, -1));
 
         jLabel25.setText("Accesorios");
-        jPanel4.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
+        LGdashboard.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
 
         jLabel28.setText("jLabel1");
-        jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
+        LGdashboard.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
 
         jLabel29.setText("jLabel1");
-        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, -1));
+        LGdashboard.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, -1));
 
         jLabel30.setText("jLabel1");
-        jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, -1, -1));
+        LGdashboard.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, -1, -1));
 
         jLabel31.setText("jLabel1");
-        jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, -1));
+        LGdashboard.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, -1));
 
         jLabel32.setText("jLabel1");
-        jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
-
-        maxC.setText("jLabel1");
-        jPanel4.add(maxC, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, -1, -1));
-
-        jLabel34.setText("jLabel1");
-        jPanel4.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, -1));
-
-        jLabel35.setText("jLabel1");
-        jPanel4.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, -1, -1));
-
-        jLabel36.setText("jLabel1");
-        jPanel4.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, -1, -1));
-
-        jLabel37.setText("jLabel1");
-        jPanel4.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
+        LGdashboard.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
         jLabel38.setText("Producidas");
-        jPanel4.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
+        LGdashboard.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setText("Cantidad de trabajadores:");
-        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        LGdashboard.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel27.setText("Información sobre el gerente");
-        jPanel4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, -1, -1));
+        LGdashboard.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, -1, -1));
 
         jLabel39.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel39.setText("Vehículos estándar");
-        jPanel4.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+        LGdashboard.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
         jLabel40.setText("jLabel1");
-        jPanel4.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
+        LGdashboard.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
         jLabel41.setText("jLabel1");
-        jPanel4.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+        LGdashboard.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel42.setText("Vehículos con accesorios");
-        jPanel4.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
+        LGdashboard.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel44.setText("5");
-        jPanel4.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 50, -1));
+        LGdashboard.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 50, -1));
 
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calendar_today_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         jLabel43.setText("días restantes para la entrega");
-        jPanel4.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 230, 60));
+        LGdashboard.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 230, 60));
 
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel45.setText("Cantidad de partes:");
-        jPanel4.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
+        LGdashboard.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
 
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel46.setText("Información sobre el director");
-        jPanel4.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
+        LGdashboard.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
 
         jLabel47.setText("Cantidad de faltas:");
-        jPanel4.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, -1, -1));
+        LGdashboard.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, -1, -1));
 
         jLabel48.setText("El director está");
-        jPanel4.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, -1, -1));
+        LGdashboard.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, -1, -1));
 
         jLabel49.setText("jLabel49");
-        jPanel4.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, -1, -1));
+        LGdashboard.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, -1, -1));
 
         jLabel50.setText("jLabel49");
-        jPanel4.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, -1, -1));
+        LGdashboard.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, -1, -1));
 
         jLabel51.setText("El gerente está");
-        jPanel4.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, -1, -1));
+        LGdashboard.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, -1, -1));
 
         jLabel52.setText("jLabel49");
-        jPanel4.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
+        LGdashboard.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
 
         jLabel53.setText("Dinero descontado:");
-        jPanel4.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
+        LGdashboard.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
 
         jLabel54.setText("jLabel49");
-        jPanel4.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
+        LGdashboard.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
 
-        jTabbedPane1.addTab("Lamborghini", jPanel4);
+        javax.swing.GroupLayout maxLGLayout = new javax.swing.GroupLayout(maxLG);
+        maxLG.setLayout(maxLGLayout);
+        maxLGLayout.setHorizontalGroup(
+            maxLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+        maxLGLayout.setVerticalGroup(
+            maxLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 180, Short.MAX_VALUE)
+        );
+
+        LGdashboard.add(maxLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 60, 180));
+
+        jTabbedPane1.addTab("Lamborghini", LGdashboard);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 534));
 
@@ -494,6 +493,7 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel LG_bruto;
     private javax.swing.JLabel LG_op;
     private javax.swing.JLabel LG_utilidad;
+    private javax.swing.JPanel LGdashboard;
     private javax.swing.JLabel RR;
     private javax.swing.JLabel RR1;
     private javax.swing.JLabel RR_bruto;
@@ -517,7 +517,6 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -531,10 +530,6 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -559,9 +554,8 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel maxC;
+    private javax.swing.JPanel maxLG;
     private javax.swing.JLabel utilidad;
     // End of variables declaration//GEN-END:variables
 }
