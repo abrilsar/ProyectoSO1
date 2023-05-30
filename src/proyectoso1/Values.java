@@ -16,7 +16,7 @@ public class Values {
     public static String[] modos = new String[]{"Watching Race","Working", "Watching Manager", "Delivering Cars"};
     public static int[] vehicleRR = new int[]{2,1,6,5,1};
     public static int[] vehicleLG = new int[]{2,1,6,5,1};
-    public static int[] salarys = new int[]{10,13,20,8,17,25,20,30};
+    public static int[] salarys = new int[]{10,13,20,8,17,25,30,20};
     public static int[] salePriceRR = new int[]{450,900};
     public static int[] salePriceLG = new int[]{400,750};
     public static int carRangeRR = 3;
@@ -29,21 +29,4 @@ public class Values {
     public static int[] workersQtyLG;
 //    public static Initial initial;
 
-//    public Values() {
-//        this.maxEmployeesRR = 12;
-//        this.maxEmployeesLG = 16;
-//        this.types = new String[]{"Chasis", "Body", "Engine", "Wheels", "Accessories", "Assembler", "Director", "Manager"};
-//        this.modos = new String[]{"Watching Race","Working", "Watching Manager", "Delivering Cars"};
-//        this.vehicleLG = new int[]{2,1,6,5,1};
-//        this.vehicleRR = new int[]{3,2,4,6,5};
-//        this.salarys = new int[]{10,13,20,8,17,25,20,30};
-//        this.salePriceRR = new int[]{450,900};
-//        this.salePriceLG = new int[]{400,750};
-//        this.carRangeLG = 3;
-//        this.carRangeRR = 6;
-//        this.productionPerDayRR = new double[]{0.5,0.5,3,3,(1/3),0.5};
-//        this.productionPerDayLG = new double[]{0.5,0.5,3,3,(1/3),0.5};
-//        this.penaltyMoney = 50;
-//        this.maxPerCategory = new int[]{25,20,55,35,10};
-//    }
 }

@@ -39,19 +39,16 @@ public class Director extends Thread{
         } catch (InterruptedException ex) {
             Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         while (true){
             payCheck();
             boolean checkDone = checkCounterDays();
-            System.out.println(checkDone);
-//            if (checkDone){
-//                deliverCars();
-//            }else{
-//                keepWorking();
-//            }
-            
+            if (checkDone){
+                deliverCars();            
+            }else{
+                keepWorking();
             }
         }
+    }
     
     public void payCheck(){
         this.accSalary += (this.salary * 24); 
@@ -59,12 +56,12 @@ public class Director extends Thread{
     
     public boolean checkCounterDays(){
         try {
-            this.plant.getMutex().acquire();
-            if (this.plant.getWareHouse().getCounterDaysDelivery() <= 0) {
-                this.plant.getMutex().release();
+            this.plant.getMutexCounter().acquire();
+            if (this.plant.getCounterDaysDelivery() <= 0) {
+                this.plant.getMutexCounter().release();
                 return true;
             }
-            this.plant.getMutex().release();
+            this.plant.getMutexCounter().release();
             
         } catch (InterruptedException ex) {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,12 +70,22 @@ public class Director extends Thread{
     }
     
     public void deliverCars(){
-        this.modo = "Delivering Cars";
+        this.modo = Values.modos[3];
+       
         try {
             this.plant.getMutex().acquire();
-            this.plant.getWareHouse().updateCounterDays(this.name);
+            this.plant.getWareHouse().removeCars();
             this.plant.getMutex().release();
+            
             sleep(this.dayDurationInMs);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            this.plant.getMutexCounter().acquire();
+            resetDays();
+            this.plant.getMutexCounter().release();
         } catch (InterruptedException ex) {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -86,22 +93,26 @@ public class Director extends Thread{
     
     public void keepWorking(){
         Random random = new Random();
-        int firstTimeChange = random.nextInt(((int) this.dayDurationInMs - ((int) this.dayDurationInMs * 5 /(12*24))));
-        int secondTimeChange = (int) (this.dayDurationInMs - (firstTimeChange + (this.dayDurationInMs * 5 /12)));
+        int num = (int) this.dayDurationInMs - ((int) this.dayDurationInMs * 5 /(12*24));
+        int firstTimeChange = random.nextInt(num);
+        int aux = firstTimeChange + ((int) this.dayDurationInMs * 5 /(12*24));
+        int secondTimeChange = (int) (this.dayDurationInMs - aux);
+
+
         try {
-            this.modo = "Working";
+            this.modo = Values.modos[1];// Trabajando
             sleep(firstTimeChange);
         } catch (InterruptedException ex) {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            this.modo = "Watching Manager";
+            this.modo = Values.modos[2];
             sleep(this.dayDurationInMs * 5 /(12*24));//dormir por 25 min
         } catch (InterruptedException ex) {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            this.modo = "Working";
+            this.modo = Values.modos[1]; // Trabajamndo
             sleep(secondTimeChange);//dormir por 25 min
         } catch (InterruptedException ex) {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
@@ -112,14 +123,17 @@ public class Director extends Thread{
         float accSalary = this.plant.getManager().getAccSalary();
         int countFaults = this.plant.getManager().getCountFaults();
         float penalty = this.plant.getManager().getPenalty();
-        this.plant.getManager().setAccSalary(accSalary - 50);
+        this.plant.getManager().setAccSalary(accSalary - Values.penaltyMoney);
         this.plant.getManager().setCountFaults(countFaults + 1);
-        this.plant.getManager().setPenalty(penalty + 50);
+        this.plant.getManager().setPenalty(penalty + Values.penaltyMoney);
+
     }
 
     public String getModo() {
         return modo;
     }
     
-    
+    public void resetDays(){
+        this.plant.setCounterDaysDelivery(Main.initial.deadLine);
+    }
 }

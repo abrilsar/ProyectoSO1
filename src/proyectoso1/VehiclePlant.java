@@ -20,7 +20,8 @@ public class VehiclePlant {
     public Semaphore mutex;
     public Director director;
     public Manager manager;
-    
+    public Semaphore mutexCounter;
+    public int counterDaysDelivery;
     
     public VehiclePlant(String name, int maxWorkerQty, long dayDuration) {
         this.name = name;
@@ -28,10 +29,11 @@ public class VehiclePlant {
         this.workers = new Worker[maxWorkerQty];
         this.dayDuration = dayDuration;
         this.wareHouse = new WareHouse(Values.maxPerCategory, defineTypeCar(), betweenTypeCar());
-
+        this.counterDaysDelivery = Main.initial.deadLine;
         this.mutex = new Semaphore(1);
-//        this.director = new Director(Values.salarys[6],this.dayDuration, this);
-//        this.director.start();
+        this.mutexCounter = new Semaphore(1);
+        this.director = new Director(Values.salarys[6],this.dayDuration, this);
+        this.director.start();
         this.manager = new Manager(Values.salarys[7], this.dayDuration, this);
         this.manager.start();
         initializeWorkers();
@@ -52,12 +54,11 @@ public class VehiclePlant {
     }
     
     public int[] defineTypeWorker(){
-//      int[] list;
-        int[] list = new int[]{2,3,4,3,3,3};
+        int[] list;
         if(name.equals("Lamborghini")){
-//            list = Main.initial.workersLG;
+            list = Main.initial.workersLG;
         }else{
-//            list =  Main.initial.workersRR;
+            list =  Main.initial.workersRR;
         }
         return list;
     }
@@ -125,6 +126,20 @@ public class VehiclePlant {
     public Manager getManager() {
         return manager;
     }
+
+    public Semaphore getMutexCounter() {
+        return mutexCounter;
+    }
+
+    public int getCounterDaysDelivery() {
+        return counterDaysDelivery;
+    }
+
+    public void setCounterDaysDelivery(int counterDaysDelivery) {
+        this.counterDaysDelivery = counterDaysDelivery;
+    }
+    
+    
     
     
 }
