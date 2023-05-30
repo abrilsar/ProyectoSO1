@@ -14,8 +14,6 @@ public class Main {
     public static VehiclePlant LGPlant;
     public static VehiclePlant RBPlant;
     public static Initial initial;
-//    public static Form form;
-
         
     /**
      * @param args the command line arguments
@@ -27,8 +25,6 @@ public class Main {
         initial = new Initial(1, 5);
         initial.createArray("workersRR", "1", "2", "3", "1", "2", "1");
         initial.createArray("workersLG", "1", "5", "4", "3", "2", "1");
-//        Main.form = Global.;
-//        form.setVisible(true);
         Global.startForm(); 
         LGPlant = new VehiclePlant("Lamborghini", Values.maxEmployeesLG, 1000);
 //        RBPlant = new VehiclePlant("Rolls Royce", Values.maxEmployeesRR, 1000);

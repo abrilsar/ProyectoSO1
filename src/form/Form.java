@@ -16,9 +16,11 @@ import proyectoso1.Main;
  */
 public final class Form extends javax.swing.JFrame {
 
-    private WorkersQty wRR;
-    private WorkersQty wLG;
+    private WorkersQtySpinner wRR;
+    private WorkersQtySpinner wLG;
     private MaxView maxView; 
+    private WorkersQty wqRR;
+    private WorkersQty wqLG;
     /**
      * Creates new form Form
      */
@@ -26,17 +28,29 @@ public final class Form extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        this.wRR = new WorkersQty(12, "workersRR");
-        this.wLG = new WorkersQty(16, "workersLG");
+        this.wRR = new WorkersQtySpinner(12, "workersRR");
+        this.wLG = new WorkersQtySpinner(16, "workersLG");
         this.maxView = new MaxView();
-        createWorkersQty(contentRR, wRR);
-        createWorkersQty(contentLG, wLG);
+        this.wqRR = new WorkersQty();
+        this.wqLG = new WorkersQty();
+        createWorkersQtySpinner(contentRR, wRR);
+        createWorkersQtySpinner(contentLG, wLG);
         createModelSpinner(DayDurationSpinner, "DayDurationSpinner");
         createModelSpinner(DeadlineSpinner, "DeadlineSpinner");
         createMax(maxLG);
+        wqLG.update(Main.initial.getWorkersLG());
+        createWorkersQty(workersQtyLG, wqLG);
         
     }
     
+    public void createWorkersQty(JPanel panel, WorkersQty wq){
+        wq.setSize(60, 220);
+        wq.setLocation(0, 0);
+        panel.removeAll();
+        panel.add(wq, BorderLayout.CENTER);
+        panel.revalidate();
+        panel.repaint();
+    }
     public void createMax(JPanel panel){
         maxView.setSize(60,220);
         maxView.setLocation(0,0);
@@ -45,7 +59,7 @@ public final class Form extends javax.swing.JFrame {
         panel.revalidate();
         panel.repaint();
     }
-    public void createWorkersQty(JPanel panel, WorkersQty wq){
+    public void createWorkersQtySpinner(JPanel panel, WorkersQtySpinner wq){
         wq.setSize(60, 220);
         wq.setLocation(0, 0);
         panel.removeAll();
@@ -151,6 +165,7 @@ public final class Form extends javax.swing.JFrame {
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
         maxLG = new javax.swing.JPanel();
+        workersQtyLG = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -302,22 +317,22 @@ public final class Form extends javax.swing.JFrame {
         LGdashboard.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         jLabel1.setText("jLabel1");
-        LGdashboard.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
+        LGdashboard.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, -1, -1));
 
         jLabel15.setText("jLabel1");
-        LGdashboard.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
+        LGdashboard.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, -1, -1));
 
         jLabel16.setText("jLabel1");
-        LGdashboard.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
+        LGdashboard.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, -1, -1));
 
         jLabel17.setText("jLabel1");
-        LGdashboard.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
+        LGdashboard.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, -1, -1));
 
         jLabel18.setText("jLabel1");
-        LGdashboard.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
+        LGdashboard.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, -1, -1));
 
         jLabel19.setText("jLabel1");
-        LGdashboard.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, -1));
+        LGdashboard.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 430, -1, -1));
 
         jLabel21.setText("Chasis");
         LGdashboard.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
@@ -427,6 +442,19 @@ public final class Form extends javax.swing.JFrame {
 
         LGdashboard.add(maxLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 60, 180));
 
+        javax.swing.GroupLayout workersQtyLGLayout = new javax.swing.GroupLayout(workersQtyLG);
+        workersQtyLG.setLayout(workersQtyLGLayout);
+        workersQtyLGLayout.setHorizontalGroup(
+            workersQtyLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+        workersQtyLGLayout.setVerticalGroup(
+            workersQtyLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 190, Short.MAX_VALUE)
+        );
+
+        LGdashboard.add(workersQtyLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 60, 190));
+
         jTabbedPane1.addTab("Lamborghini", LGdashboard);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 534));
@@ -440,9 +468,9 @@ public final class Form extends javax.swing.JFrame {
         Main.initial.setDeadLine((int)DeadlineSpinner.getValue());
         Main.initial.setWorkersRR(this.wRR.valuesSpinners);
         Main.initial.setWorkersLG(this.wLG.valuesSpinners);
-        for (int i = 0; i < Main.initial.workersRR.length; i++) {
-            System.out.println(Main.initial.workersRR[i]);
-        }
+//        wqRR.update(Main.initial.workersRR);
+        wqLG.update(Main.initial.workersLG);
+        
         
     }//GEN-LAST:event_GuardarActionPerformed
 
@@ -557,5 +585,6 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel maxLG;
     private javax.swing.JLabel utilidad;
+    private javax.swing.JPanel workersQtyLG;
     // End of variables declaration//GEN-END:variables
 }

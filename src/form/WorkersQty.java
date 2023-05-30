@@ -5,10 +5,7 @@
  */
 package form;
 
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.event.ChangeEvent;
-import proyectoso1.Main;
+import javax.swing.JLabel;
 
 /**
  *
@@ -16,119 +13,30 @@ import proyectoso1.Main;
  */
 public class WorkersQty extends javax.swing.JPanel {
 
-    private final int maxWorkerQty;
-    private final JSpinner[] spinners;
-    private int availableQty;
-    public final int[] valuesSpinners;
-    private final String label;
-    
+    private final JLabel[] labels;
     /**
      * Creates new form WorkersQty
-     * @param maxWorkerQty
-     * @param label
      */
-    public WorkersQty(int maxWorkerQty, String label) {
+    public WorkersQty() {
         initComponents();
-        this.maxWorkerQty = maxWorkerQty;
-        this.availableQty = maxWorkerQty;
-        this.spinners = new JSpinner[6];
-        this.valuesSpinners = new int[6];
-        this.label = label;
-        initializeSpinners();
+        this.labels = new JLabel[6];
+        initializeLabels();
     }
     
-    
-    public int updateValuesSpinners(int value, JSpinner spinner){
-        for (int i = 0; i < this.spinners.length; i++) {
-            if (spinner == this.spinners[i]){
-                if (value > this.valuesSpinners[i]){
-                    this.valuesSpinners[i] = (int) this.spinners[i].getValue();
-                    return -1;                                      
-                }
-                else{
-                    this.valuesSpinners[i] = (int) this.spinners[i].getValue();
-                    return 1;
-                }
-            }
-        }
-        return 0;
+    public final void initializeLabels(){
+        this.labels[0] = this.workersChasis;
+        this.labels[1] = this.workersBody;
+        this.labels[2] = this.workersEngine;
+        this.labels[3] = this.workersWheels;
+        this.labels[4] = this.workersAcc;
+        this.labels[5] = this.workersAssembler;
     }
     
-    public void countAvailable(){
-        for (JSpinner spinner : this.spinners) {
-            this.availableQty -= (int) spinner.getValue();
+    public void update(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            this.labels[i].setText(String.valueOf(array[i]));
         }
     }
-    
-    public void createListener(JSpinner spinner){
-        spinner.addChangeListener((ChangeEvent e) -> {
-            JSpinner source = (JSpinner) e.getSource();
-            int value = (int) source.getValue();
-            int aux = updateValuesSpinners(value, source);
-            if ( aux != 0){
-                this.availableQty += aux;
-                availableLabel.setText(String.valueOf(this.availableQty));
-                createModelSpinner(false);
-            }
-        });    
-    }
-    
-    public final void initializeSpinners(){
-        this.spinners[0] = this.chasisQTY;
-        this.spinners[1] = this.bodiesQTY;
-        this.spinners[2] = this.engineQTY;
-        this.spinners[3] = this.wheelsQTY;
-        this.spinners[4] = this.accesoriesQTY;
-        this.spinners[5] = this.assemblersQTY;
-        createModelSpinner(true);
-        countAvailable();
-        availableLabel.setText(String.valueOf(this.availableQty));
-        for (JSpinner spinner : this.spinners) {
-            int a = updateValuesSpinners((int) spinner.getValue(), spinner);
-            createListener(spinner);
-        }
-        createModelSpinner(false);
-    }
-    
-//    public void createModelSpinner(){
-//        for (JSpinner label: this.spinners){
-//            SpinnerNumberModel nm = new SpinnerNumberModel();
-//            nm.setMaximum(this.availableQty + (int) label.getValue());
-//            if (availableQty == 0){
-//                nm.setMaximum((int) label.getValue());
-//            }
-//            nm.setMinimum(1);
-//            nm.setValue(label.getValue());
-//            label.setModel(nm);
-//        }
-//        
-//    }
-    public void createModelSpinner(boolean first){
-        for (int i = 0; i < this.spinners.length; i++) {
-            SpinnerNumberModel nm = new SpinnerNumberModel();
-            nm.setMaximum(this.availableQty + (int) this.spinners[i].getValue());
-            if (availableQty == 0){
-                nm.setMaximum((int) this.spinners[i].getValue());
-            }
-            nm.setMinimum(1);
-            if (first){
-                if (this.label.equals("workersRR")){
-//                    System.out.println(Mai);
-//                    System.out.println("maldita sea");
-                    
-                    nm.setValue(Main.initial.workersRR[i]);
-                }else if (this.label.equals("workersLG")){
-//                    System.out.println("maldita 2");
-                    nm.setValue(Main.initial.workersLG[i]);
-                }
-            }else{
-                nm.setValue(this.spinners[i].getValue());
-            }
-            this.spinners[i].setModel(nm);
-        }
-       
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,58 +47,55 @@ public class WorkersQty extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        availableLabel = new javax.swing.JLabel();
-        chasisQTY = new javax.swing.JSpinner();
-        bodiesQTY = new javax.swing.JSpinner();
-        engineQTY = new javax.swing.JSpinner();
-        wheelsQTY = new javax.swing.JSpinner();
-        accesoriesQTY = new javax.swing.JSpinner();
-        assemblersQTY = new javax.swing.JSpinner();
+        workersChasis = new javax.swing.JLabel();
+        workersBody = new javax.swing.JLabel();
+        workersEngine = new javax.swing.JLabel();
+        workersWheels = new javax.swing.JLabel();
+        workersAcc = new javax.swing.JLabel();
+        workersAssembler = new javax.swing.JLabel();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        availableLabel.setText("jLabel4");
-        jPanel1.add(availableLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        workersChasis.setText("jLabel1");
+        jPanel1.add(workersChasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        chasisQTY.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jPanel1.add(chasisQTY, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 40, 20));
+        workersBody.setText("jLabel1");
+        jPanel1.add(workersBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        bodiesQTY.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jPanel1.add(bodiesQTY, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 40, 20));
+        workersEngine.setText("jLabel1");
+        jPanel1.add(workersEngine, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        engineQTY.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jPanel1.add(engineQTY, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 40, 20));
+        workersWheels.setText("jLabel1");
+        jPanel1.add(workersWheels, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
-        wheelsQTY.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jPanel1.add(wheelsQTY, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 40, 20));
+        workersAcc.setText("jLabel1");
+        jPanel1.add(workersAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
-        accesoriesQTY.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jPanel1.add(accesoriesQTY, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 40, 20));
-
-        assemblersQTY.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jPanel1.add(assemblersQTY, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 40, 20));
+        workersAssembler.setText("jLabel1");
+        jPanel1.add(workersAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner accesoriesQTY;
-    private javax.swing.JSpinner assemblersQTY;
-    private javax.swing.JLabel availableLabel;
-    private javax.swing.JSpinner bodiesQTY;
-    private javax.swing.JSpinner chasisQTY;
-    private javax.swing.JSpinner engineQTY;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner wheelsQTY;
+    private javax.swing.JLabel workersAcc;
+    private javax.swing.JLabel workersAssembler;
+    private javax.swing.JLabel workersBody;
+    private javax.swing.JLabel workersChasis;
+    private javax.swing.JLabel workersEngine;
+    private javax.swing.JLabel workersWheels;
     // End of variables declaration//GEN-END:variables
 }
