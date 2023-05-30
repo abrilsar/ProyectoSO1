@@ -5,7 +5,15 @@
  */
 package proyectoso1;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,20 +21,55 @@ import javax.swing.JOptionPane;
  * @author paola
  */
 public class Txt {
-//    public static void write(String[] array){
-//        String info = "";
-//        if(array.length != 0){
-//            for (int i = 0; i < array.length; i++){
-//                info += ;
-//            }
-//        }
-//        try{
-//            PrintWriter pw = new PrintWriter("test\\resumenes.txt");
-//            pw.write(info);
-//            pw.close();
-//            JOptionPane.showMessageDialog(null,"Guardador realizado Exitosamente");
-//        }catch(Exception err){
-//            JOptionPane.showMessageDialog(null,"Error");
-//        }
-//    }
+
+    
+    public static Initial readData(){
+        FileInputStream archivo = null;
+        ObjectInputStream lector = null;
+        Initial initial = null;
+        
+        try {
+            archivo = new FileInputStream("data.txt");
+            lector = new ObjectInputStream(archivo);
+            initial = (Initial) lector.readObject();
+        } catch (FileNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Txt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(Txt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Txt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }finally{
+            try {
+                archivo.close();
+                lector.close();
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(Txt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+        return initial;
+        
+    }
+    
+    public static void saveData(){
+        FileOutputStream archivo = null;
+        ObjectOutputStream escritor = null;
+        try {
+            archivo = new FileOutputStream("data.txt");
+            escritor = new ObjectOutputStream(archivo);
+            escritor.writeObject(Main.initial);
+        } catch (FileNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Txt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(Txt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }finally{
+               try {
+                   archivo.close();
+                   escritor.close();
+               } catch (IOException ex) {
+                   java.util.logging.Logger.getLogger(Txt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+               }   
+        }
+    }
 }

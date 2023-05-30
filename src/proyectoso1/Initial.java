@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package proyectoso1;
-
+import java.io.Serializable;
 /**
  *
  * @author paola
  */
-public class Initial {
+public class Initial implements Serializable{
     public int dayDuration;
     public int deadLine;
     public int[] workersRR;
