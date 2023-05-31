@@ -44,33 +44,34 @@ public class MaxView extends javax.swing.JPanel {
         maxW = new javax.swing.JLabel();
         maxAc = new javax.swing.JLabel();
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         availableLabel.setText("Máximo");
         jPanel2.add(availableLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         maxC.setText("jLabel1");
-        jPanel2.add(maxC, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        jPanel2.add(maxC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         maxB.setText("jLabel1");
-        jPanel2.add(maxB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        jPanel2.add(maxB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         maxE.setText("jLabel1");
-        jPanel2.add(maxE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        jPanel2.add(maxE, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         maxW.setText("jLabel1");
-        jPanel2.add(maxW, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        jPanel2.add(maxW, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         maxAc.setText("jLabel1");
-        jPanel2.add(maxAc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        jPanel2.add(maxAc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 331, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 307, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

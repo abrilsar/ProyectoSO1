@@ -23,6 +23,8 @@ public final class Form extends javax.swing.JFrame {
     private MaxView maxView; 
     private WorkersQty wqRR;
     private WorkersQty wqLG;
+    private PartsQty partsRR;
+    private PartsQty partsLG;
     /**
      * Creates new form Form
      */
@@ -35,6 +37,8 @@ public final class Form extends javax.swing.JFrame {
         this.maxView = new MaxView();
         this.wqRR = new WorkersQty();
         this.wqLG = new WorkersQty();
+        this.partsRR = new PartsQty();
+        this.partsLG = new PartsQty();
         createWorkersQtySpinner(contentRR, wRR);
         createWorkersQtySpinner(contentLG, wLG);
         createModelSpinner(DayDurationSpinner, "DayDurationSpinner");
@@ -42,6 +46,16 @@ public final class Form extends javax.swing.JFrame {
         createMax(maxLG);
         wqLG.update(Main.initial.getWorkersLG());
         createWorkersQty(workersQtyLG, wqLG);
+        createPartsQty(partsQtyLG, partsLG);
+    }
+    
+    public void createPartsQty(JPanel panel, PartsQty pq){
+        pq.setSize(60, 220);
+        pq.setLocation(0, 0);
+        panel.removeAll();
+        panel.add(pq, BorderLayout.CENTER);
+        panel.revalidate();
+        panel.repaint();
     }
     
     public void createWorkersQty(JPanel panel, WorkersQty wq){
@@ -139,11 +153,6 @@ public final class Form extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -165,12 +174,15 @@ public final class Form extends javax.swing.JFrame {
         penaltyLG = new javax.swing.JLabel();
         maxLG = new javax.swing.JPanel();
         workersQtyLG = new javax.swing.JPanel();
+        partsQtyLG = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DashBoard_Panel.setBackground(new java.awt.Color(255, 255, 255));
         DashBoard_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        contentRR.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout contentRRLayout = new javax.swing.GroupLayout(contentRR);
         contentRR.setLayout(contentRRLayout);
@@ -273,6 +285,8 @@ public final class Form extends javax.swing.JFrame {
         DayDurationSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         DashBoard_Panel.add(DayDurationSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 40, -1));
 
+        contentLG.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout contentLGLayout = new javax.swing.GroupLayout(contentLG);
         contentLG.setLayout(contentLGLayout);
         contentLGLayout.setHorizontalGroup(
@@ -333,21 +347,6 @@ public final class Form extends javax.swing.JFrame {
         jLabel25.setText("Accesorios");
         LGdashboard.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
 
-        jLabel28.setText("jLabel1");
-        LGdashboard.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
-
-        jLabel29.setText("jLabel1");
-        LGdashboard.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, -1));
-
-        jLabel30.setText("jLabel1");
-        LGdashboard.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, -1, -1));
-
-        jLabel31.setText("jLabel1");
-        LGdashboard.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, -1));
-
-        jLabel32.setText("jLabel1");
-        LGdashboard.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
-
         jLabel38.setText("Producidas");
         LGdashboard.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
 
@@ -396,7 +395,7 @@ public final class Form extends javax.swing.JFrame {
         LGdashboard.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, -1, -1));
 
         faultsLG.setText("0");
-        LGdashboard.add(faultsLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, -1, -1));
+        LGdashboard.add(faultsLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 220, 50, -1));
 
         directorIsLG.setText("Working");
         LGdashboard.add(directorIsLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, -1, -1));
@@ -411,20 +410,26 @@ public final class Form extends javax.swing.JFrame {
         LGdashboard.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
 
         penaltyLG.setText("0");
-        LGdashboard.add(penaltyLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
+        LGdashboard.add(penaltyLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 250, 50, -1));
+
+        maxLG.setBackground(new java.awt.Color(255, 255, 255));
+        maxLG.setPreferredSize(new java.awt.Dimension(46, 174));
 
         javax.swing.GroupLayout maxLGLayout = new javax.swing.GroupLayout(maxLG);
         maxLG.setLayout(maxLGLayout);
         maxLGLayout.setHorizontalGroup(
             maxLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGap(0, 70, Short.MAX_VALUE)
         );
         maxLGLayout.setVerticalGroup(
             maxLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
+            .addGap(0, 174, Short.MAX_VALUE)
         );
 
-        LGdashboard.add(maxLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 60, 180));
+        LGdashboard.add(maxLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 70, -1));
+
+        workersQtyLG.setBackground(new java.awt.Color(255, 255, 255));
+        workersQtyLG.setPreferredSize(new java.awt.Dimension(44, 174));
 
         javax.swing.GroupLayout workersQtyLGLayout = new javax.swing.GroupLayout(workersQtyLG);
         workersQtyLG.setLayout(workersQtyLGLayout);
@@ -437,7 +442,23 @@ public final class Form extends javax.swing.JFrame {
             .addGap(0, 190, Short.MAX_VALUE)
         );
 
-        LGdashboard.add(workersQtyLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 60, 190));
+        LGdashboard.add(workersQtyLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 60, 190));
+
+        partsQtyLG.setBackground(new java.awt.Color(255, 255, 255));
+        partsQtyLG.setPreferredSize(new java.awt.Dimension(16, 144));
+
+        javax.swing.GroupLayout partsQtyLGLayout = new javax.swing.GroupLayout(partsQtyLG);
+        partsQtyLG.setLayout(partsQtyLGLayout);
+        partsQtyLGLayout.setHorizontalGroup(
+            partsQtyLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 16, Short.MAX_VALUE)
+        );
+        partsQtyLGLayout.setVerticalGroup(
+            partsQtyLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 144, Short.MAX_VALUE)
+        );
+
+        LGdashboard.add(partsQtyLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
 
         jTabbedPane1.addTab("Lamborghini", LGdashboard);
 
@@ -558,12 +579,7 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -584,6 +600,7 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel managerIsLG;
     private javax.swing.JPanel maxLG;
+    private javax.swing.JPanel partsQtyLG;
     private javax.swing.JLabel penaltyLG;
     private javax.swing.JLabel utilidad;
     private javax.swing.JLabel vaLG;

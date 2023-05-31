@@ -16,6 +16,8 @@ public class Global {
     
     public static void startForm(){
         form.setVisible(true);
+        form.getDaysLeftLG().setText(String.valueOf(Main.initial.getDeadLine()/1000));
+
     }
 
     public static Form getForm() {
