@@ -14,7 +14,7 @@ public class Values {
     public static int maxEmployeesLG = 16;
     public static String[] types= new String[]{"Chasis", "Body", "Engine", "Wheels", "Accessories", "Assembler", "Director", "Manager"};
     public static String[] modos = new String[]{"Watching Race","Working", "Watching Manager", "Delivering Cars"};
-    public static int[] vehicleRR = new int[]{2,1,6,5,1};
+    public static int[] vehicleRR = new int[]{3,2,4,6,5};
     public static int[] vehicleLG = new int[]{2,1,6,5,1};
     public static int[] salarys = new int[]{10,13,20,8,17,25,30,20};
     public static int[] salePriceRR = new int[]{450,900};

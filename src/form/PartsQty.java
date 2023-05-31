@@ -69,7 +69,7 @@ public class PartsQty extends javax.swing.JPanel {
         jPanel1.add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         engine.setText("0");
-        jPanel1.add(engine, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        jPanel1.add(engine, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 20, -1));
 
         wheels.setText("0");
         jPanel1.add(wheels, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
