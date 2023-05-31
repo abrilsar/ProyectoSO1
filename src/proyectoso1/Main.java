@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package proyectoso1;
-import form.Form;
 /**
  *
  * @author Abril
@@ -26,8 +25,9 @@ public class Main {
 //        initial.createArray("workersRR", "1", "2", "3", "1", "2", "1");
 //        initial.createArray("workersLG", "1", "5", "4", "3", "2", "1");
         Global.startForm(); 
-        LGPlant = new VehiclePlant("Lamborghini", Values.maxEmployeesLG, 1000);
-        RBPlant = new VehiclePlant("Rolls Royce", Values.maxEmployeesRR, 1000);
+        LGPlant = new VehiclePlant("Lamborghini", Values.maxEmployeesLG, initial.dayDuration);
+//        RBPlant = new VehiclePlant("Rolls Royce", Values.maxEmployeesRR, initial.dayDuration);
+//        Global.getForm().getVeLG().setText("a");
     }
     
 }

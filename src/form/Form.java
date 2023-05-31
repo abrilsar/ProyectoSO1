@@ -6,10 +6,12 @@
 package form;
 
 import java.awt.BorderLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import proyectoso1.Main;
+import proyectoso1.Txt;
 /**
  *
  * @author paola
@@ -40,7 +42,6 @@ public final class Form extends javax.swing.JFrame {
         createMax(maxLG);
         wqLG.update(Main.initial.getWorkersLG());
         createWorkersQty(workersQtyLG, wqLG);
-        
     }
     
     public void createWorkersQty(JPanel panel, WorkersQty wq){
@@ -73,14 +74,18 @@ public final class Form extends javax.swing.JFrame {
 //        nm.setMaximum();
         nm.setMinimum(1);
         if (label.equals("DayDurationSpinner")){
-            nm.setValue(Main.initial.dayDuration);
+            nm.setValue(Main.initial.dayDuration/1000);
         }else if (label.equals("DeadlineSpinner")){
-            nm.setValue(Main.initial.deadLine);
+            nm.setValue(Main.initial.deadLine/1000);
         }
         spinner.setModel(nm);
-       
-        
     }    
+
+    public JLabel getDaysLeftLG() {
+        return daysLeftLG;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -143,21 +148,21 @@ public final class Form extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
+        veLG = new javax.swing.JLabel();
+        vaLG = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
+        daysLeftLG = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
+        faultsLG = new javax.swing.JLabel();
+        directorIsLG = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
+        managerIsLG = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
+        penaltyLG = new javax.swing.JLabel();
         maxLG = new javax.swing.JPanel();
         workersQtyLG = new javax.swing.JPanel();
 
@@ -358,19 +363,19 @@ public final class Form extends javax.swing.JFrame {
         jLabel39.setText("Vehículos estándar");
         LGdashboard.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
-        jLabel40.setText("jLabel1");
-        LGdashboard.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
+        veLG.setText("0");
+        LGdashboard.add(veLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
-        jLabel41.setText("jLabel1");
-        LGdashboard.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+        vaLG.setText("0");
+        LGdashboard.add(vaLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel42.setText("Vehículos con accesorios");
         LGdashboard.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
-        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel44.setText("5");
-        LGdashboard.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 50, -1));
+        daysLeftLG.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        daysLeftLG.setText("0");
+        LGdashboard.add(daysLeftLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 50, -1));
 
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calendar_today_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         jLabel43.setText("días restantes para la entrega");
@@ -390,23 +395,23 @@ public final class Form extends javax.swing.JFrame {
         jLabel48.setText("El director está");
         LGdashboard.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, -1, -1));
 
-        jLabel49.setText("jLabel49");
-        LGdashboard.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, -1, -1));
+        faultsLG.setText("0");
+        LGdashboard.add(faultsLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, -1, -1));
 
-        jLabel50.setText("jLabel49");
-        LGdashboard.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, -1, -1));
+        directorIsLG.setText("Working");
+        LGdashboard.add(directorIsLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, -1, -1));
 
         jLabel51.setText("El gerente está");
         LGdashboard.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, -1, -1));
 
-        jLabel52.setText("jLabel49");
-        LGdashboard.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
+        managerIsLG.setText("Working");
+        LGdashboard.add(managerIsLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
 
         jLabel53.setText("Dinero descontado:");
         LGdashboard.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
 
-        jLabel54.setText("jLabel49");
-        LGdashboard.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
+        penaltyLG.setText("0");
+        LGdashboard.add(penaltyLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
 
         javax.swing.GroupLayout maxLGLayout = new javax.swing.GroupLayout(maxLG);
         maxLG.setLayout(maxLGLayout);
@@ -443,14 +448,13 @@ public final class Form extends javax.swing.JFrame {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
-        Main.initial.setDayDuration((int)DayDurationSpinner.getValue());
-        Main.initial.setDeadLine((int)DeadlineSpinner.getValue());
+        Main.initial.setDayDuration(((int)DayDurationSpinner.getValue())*1000);
+        Main.initial.setDeadLine(((int)DeadlineSpinner.getValue())*1000);
         Main.initial.setWorkersRR(this.wRR.valuesSpinners);
         Main.initial.setWorkersLG(this.wLG.valuesSpinners);
 //        wqRR.update(Main.initial.workersRR);
         wqLG.update(Main.initial.workersLG);
-        
-        
+        Txt.saveData();
     }//GEN-LAST:event_GuardarActionPerformed
 
     /**
@@ -488,6 +492,32 @@ public final class Form extends javax.swing.JFrame {
         });
     }
 
+    public JLabel getDirectorIsLG() {
+        return directorIsLG;
+    }
+
+    public JLabel getFaultsLG() {
+        return faultsLG;
+    }
+
+    public JLabel getManagerIsLG() {
+        return managerIsLG;
+    }
+
+    public JLabel getPenaltyLG() {
+        return penaltyLG;
+    }
+    
+    
+
+    public JLabel getVaLG() {
+        return vaLG;
+    }
+
+    public JLabel getVeLG() {
+        return veLG;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashBoard_Panel;
     private javax.swing.JLabel DayDuration;
@@ -510,6 +540,9 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel Título1;
     private javax.swing.JPanel contentLG;
     private javax.swing.JPanel contentRR;
+    private javax.swing.JLabel daysLeftLG;
+    private javax.swing.JLabel directorIsLG;
+    private javax.swing.JLabel faultsLG;
     private javax.swing.JLabel ganancias_bruto;
     private javax.swing.JLabel gastos_op;
     private javax.swing.JLabel jLabel10;
@@ -534,30 +567,27 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel managerIsLG;
     private javax.swing.JPanel maxLG;
+    private javax.swing.JLabel penaltyLG;
     private javax.swing.JLabel utilidad;
+    private javax.swing.JLabel vaLG;
+    private javax.swing.JLabel veLG;
     private javax.swing.JPanel workersQtyLG;
     // End of variables declaration//GEN-END:variables
 }

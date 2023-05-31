@@ -15,12 +15,12 @@ import java.util.logging.Logger;
  * @author Abril
  */
 public class Director extends Thread{
-    private String name;
-    private float salary;
+    private final String name;
+    private final float salary;
     private float accSalary;
-    private long dayDurationInMs;
+    private final long dayDurationInMs;
     private String modo;
-    private VehiclePlant plant;
+    private final VehiclePlant plant;
 
     public Director(float salary, long dayDurationInMs, VehiclePlant plant) {
         this.name = "Director";
@@ -50,6 +50,14 @@ public class Director extends Thread{
         }
     }
     
+    public void setForm(){
+        if (this.plant.getName().equals("Lamborghini")){
+            Global.getForm().getDirectorIsLG().setText(this.modo);
+        }else{
+//             Global.getForm().getDirectorIsRR().setText(this.modo);
+        }
+    }
+    
     public void payCheck(){
         this.accSalary += (this.salary * 24); 
     }
@@ -71,7 +79,7 @@ public class Director extends Thread{
     
     public void deliverCars(){
         this.modo = Values.modos[3];
-       
+        this.setForm();
         try {
             this.plant.getMutex().acquire();
             this.plant.getWareHouse().removeCars();
@@ -101,18 +109,21 @@ public class Director extends Thread{
 
         try {
             this.modo = Values.modos[1];// Trabajando
+            setForm();
             sleep(firstTimeChange);
         } catch (InterruptedException ex) {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             this.modo = Values.modos[2];
+            setForm();
             sleep(this.dayDurationInMs * 5 /(12*24));//dormir por 25 min
         } catch (InterruptedException ex) {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            this.modo = Values.modos[1]; // Trabajamndo
+            this.modo = Values.modos[1]; // Trabajando
+            setForm();
             sleep(secondTimeChange);//dormir por 25 min
         } catch (InterruptedException ex) {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
@@ -126,6 +137,12 @@ public class Director extends Thread{
         this.plant.getManager().setAccSalary(accSalary - Values.penaltyMoney);
         this.plant.getManager().setCountFaults(countFaults + 1);
         this.plant.getManager().setPenalty(penalty + Values.penaltyMoney);
+        if (this.plant.getName().equals("Lamborghini")){
+            Global.getForm().getFaultsLG().setText(String.valueOf(this.plant.getManager().getCountFaults()));
+            Global.getForm().getPenaltyLG().setText(String.valueOf(this.plant.getManager().getPenalty()));
+        }else{
+//             Global.getForm().getDirectorIsRR().setText(this.modo);
+        }
 
     }
 

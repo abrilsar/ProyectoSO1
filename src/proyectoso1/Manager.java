@@ -14,12 +14,12 @@ import java.util.logging.Logger;
  * @author Abril
  */
 public class Manager extends Thread{
-    private String name;
-    private float salary;
+    private final String name;
+    private final float salary;
     private float accSalary;
-    private long dayDurationInMs;
+    private final long dayDurationInMs;
     private String modo;
-    private VehiclePlant plant;
+    private final VehiclePlant plant;
     private float penalty;
     private int countFaults;
     private boolean work;
@@ -52,6 +52,14 @@ public class Manager extends Thread{
         }
     }
     
+    public void setForm(){
+        if (this.plant.getName().equals("Lamborghini")){
+            Global.getForm().getManagerIsLG().setText(this.modo);
+        }else{
+//             Global.getForm().getDirectorIsRR().setText(this.modo);
+        }
+    }
+    
     public void payCheck(){
         this.accSalary += (this.salary * 24);   
     }
@@ -60,8 +68,10 @@ public class Manager extends Thread{
         for (int i = 0; i < 32; i++) {
             if(work){
                 this.modo = Values.modos[1];
+                setForm();
             }else{
                 this.modo = Values.modos[0];
+                setForm();
                 Director director = this.plant.getDirector();
                 if(director.getModo().equals(Values.modos[2])){
                     director.penaltyManager();
@@ -77,6 +87,7 @@ public class Manager extends Thread{
             work = !work; 
         }
         this.modo = "Working";
+        setForm();
     }
     
     public void updateCounter(){
@@ -94,6 +105,11 @@ public class Manager extends Thread{
     public void decreasecount(){
         int counter = this.plant.getCounterDaysDelivery();
         this.plant.setCounterDaysDelivery(counter - 1);
+        if (this.plant.getName().equals("Lamborghini")){
+            Global.getForm().getDaysLeftLG().setText(String.valueOf(this.plant.getCounterDaysDelivery()/1000));
+        }else{
+//             Global.getForm().getDirectorIsRR().setText(String.valueOf(this.plant.getCounterDaysDelivery()/1000));
+        }
     }
     
     public float getAccSalary() {

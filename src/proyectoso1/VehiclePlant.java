@@ -12,10 +12,10 @@ import java.util.concurrent.Semaphore;
  * @author Abril
  */
 public class VehiclePlant {
-    private String name;
-    private int maxWorkerQty;
-    private Worker[] workers;
-    private long dayDuration;
+    private final String name;
+    private final int maxWorkerQty;
+    private final Worker[] workers;
+    private final long dayDuration;
     public WareHouse wareHouse;
     public Semaphore mutex;
     public Director director;
@@ -28,7 +28,7 @@ public class VehiclePlant {
         this.maxWorkerQty = maxWorkerQty;
         this.workers = new Worker[maxWorkerQty];
         this.dayDuration = dayDuration;
-        this.wareHouse = new WareHouse(Values.maxPerCategory, defineTypeCar(), betweenTypeCar());
+        this.wareHouse = new WareHouse(Values.maxPerCategory, defineTypeCar(), betweenTypeCar(), name.equals("Lamborghini"));
         this.counterDaysDelivery = Main.initial.deadLine;
         this.mutex = new Semaphore(1);
         this.mutexCounter = new Semaphore(1);
@@ -46,13 +46,13 @@ public class VehiclePlant {
         for(int i = 0; i < listQtyWorker.length; i++){
             for (int j = 0; j < listQtyWorker[i]; j++) {
                 Worker worker = new Worker((float) listProductionPerDay[i], Values.salarys[i], this.dayDuration, Values.types[i], this);
-                worker.start();
                 this.workers[i] = worker;
+                worker.start();
             }
             
         }
     }
-    
+     
     public int[] defineTypeWorker(){
         int[] list;
         if(name.equals("Lamborghini")){

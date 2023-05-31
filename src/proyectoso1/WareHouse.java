@@ -18,17 +18,19 @@ public class WareHouse {
     private int standardVehicleQty;
     private int vehicleWithAccessoriesQty;
     private int standardVehicleCounter;
-    private int[] vehicleType;
+    private final int[] vehicleType;
    
     
-    private int maxChasisQty;
-    private int maxWheelsQty;
-    private int maxEnginesQty;
-    private int maxBodiesQty;
-    private int maxAccessoriesQty;
-    private int betweenTypeCar;
+    private final int maxChasisQty;
+    private final int maxWheelsQty;
+    private final int maxEnginesQty;
+    private final int maxBodiesQty;
+    private final int maxAccessoriesQty;
+    private final int betweenTypeCar;
+    
+    private final boolean isLG;
 
-    public WareHouse(int[] maxCategory, int[] vehicleType, int betweenTypeCar){    
+    public WareHouse(int[] maxCategory, int[] vehicleType, int betweenTypeCar, boolean isLG){    
         this.maxChasisQty = maxCategory[0];
         this.maxWheelsQty = maxCategory[3];
         this.maxEnginesQty = maxCategory[2];
@@ -43,50 +45,55 @@ public class WareHouse {
         this.vehicleWithAccessoriesQty = 0;
         this.vehicleType = vehicleType; 
         this.betweenTypeCar = betweenTypeCar;
+        this.isLG = isLG;
         
     }  
  
     public void removeCars(){
         this.standardVehicleQty = 0;
         this.vehicleWithAccessoriesQty = 0;
-        this.standardVehicleCounter = 0;       
+        this.standardVehicleCounter = 0;
+        if (isLG){
+            Global.getForm().getVeLG().setText("0");
+            Global.getForm().getVaLG().setText("0");
+        }
     }
     
     public void updateStorage(String workerType, int finishedPart){
         switch (workerType){
-            case "chasis" :
+            case "Chasis" :
                 if(this.chasisQty < this.maxChasisQty){
                     this.chasisQty += finishedPart;
                     
                 }
                 break;
                 
-            case "body" :
+            case "Body" :
                 if(this.bodiesQty < this.maxBodiesQty){
                    this.bodiesQty += finishedPart;
                 }
                 
                 break;
                 
-            case "engine":
+            case "Engine":
                 if(this.enginesQty < this.maxEnginesQty){
                    this.enginesQty += finishedPart;
                 }
                 break;
                 
-            case "wheels":
+            case "Wheels":
                 if(this.wheelsQty < this.maxWheelsQty){
                    this.wheelsQty += finishedPart;
                }
                break;
                 
-            case "accessories":
+            case "Accessories":
                 if(this.accessoriesQty < this.maxAccessoriesQty){
                    this.accessoriesQty += finishedPart;
                 }    
                 break;
             
-            case "assembler":
+            case "Assembler":
                 assembly();
                 break;
                 
@@ -97,18 +104,29 @@ public class WareHouse {
     
     public void assembly(){
         if(this.chasisQty >= this.vehicleType[0] && this.bodiesQty >= this.vehicleType[1] &&  this.enginesQty >= this.vehicleType[2] && this.wheelsQty >= this.vehicleType[3]){   
-            if(this.standardVehicleCounter <= this.betweenTypeCar){
+            if(this.standardVehicleCounter < this.betweenTypeCar){
 //                Aqui se crean los carros standar
                 reduceValues();
                 this.standardVehicleCounter += 1;
                 this.standardVehicleQty += 1;
+                if (isLG){
+                    System.out.println(this.standardVehicleQty);
+                    Global.getForm().getVeLG().setText(String.valueOf(this.standardVehicleQty));
+//                    Global.getForm().getVeLG().setText("a");
+                }else{
+//                    Global.getForm().getVeRR().setText(String.valueOf(this.standardVehicleQty));
+                }
             }else{
-//                
                 if(this.accessoriesQty >= this.vehicleType[4]){
                     this.standardVehicleCounter = 0;
                     reduceValues();
                     this.accessoriesQty -= this.vehicleType[4];
                     this.vehicleWithAccessoriesQty += 1;
+                    if (isLG){
+                        Global.getForm().getVaLG().setText(String.valueOf(this.vehicleWithAccessoriesQty));
+                    }else{
+    //                    Global.getForm().getVaRR().setText(String.valueOf(this.standardVehicleQty));
+                    }
                 }
             }
         }
@@ -130,9 +148,4 @@ public class WareHouse {
         return standardVehicleCounter;
     }
 
-
-
-    
-
-    
 }   

@@ -19,10 +19,10 @@ public class Values {
     public static int[] salarys = new int[]{10,13,20,8,17,25,30,20};
     public static int[] salePriceRR = new int[]{450,900};
     public static int[] salePriceLG = new int[]{400,750};
-    public static int carRangeRR = 3;
-    public static int carRangeLG = 6;  
-    public static double[] productionPerDayRR = new double[]{0.5,0.5,3,3,(1/3),0.5};     
-    public static double[] productionPerDayLG = new double[]{0.5,0.5,3,3,(1/3),0.5};     
+    public static int carRangeRR = 6;
+    public static int carRangeLG = 3;  
+    public static double[] productionPerDayRR = new double[]{0.5,0.5,3,3,0.33,0.5};     
+    public static double[] productionPerDayLG = new double[]{0.5,0.5,3,3,0.33,0.5};     
     public static int penaltyMoney = 50;  
     public static int[] maxPerCategory = new int[]{25,20,55,35,10};
     public static int[] workersQtyRR;

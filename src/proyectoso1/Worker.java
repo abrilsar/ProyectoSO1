@@ -14,13 +14,13 @@ import java.util.logging.Logger;
  */
 public class Worker extends Thread{
 
-    private float productionPerDay;
-    private float salary;
+    private final float productionPerDay;
+    private final float salary;
     private float accSalary;
-    private long dayDurationInMs;
-    private String type;
+    private final long dayDurationInMs;
+    private final String type;
     private float productionCounter;
-    private VehiclePlant plant;
+    private final VehiclePlant plant;
   
     
     

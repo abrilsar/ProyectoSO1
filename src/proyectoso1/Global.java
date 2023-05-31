@@ -17,5 +17,8 @@ public class Global {
     public static void startForm(){
         form.setVisible(true);
     }
-    
+
+    public static Form getForm() {
+        return form;
+    }
 }
