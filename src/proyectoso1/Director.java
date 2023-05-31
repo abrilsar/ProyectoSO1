@@ -18,7 +18,7 @@ public class Director extends Thread{
     private final String name;
     private final float salary;
     private float accSalary;
-    private final long dayDurationInMs;
+    private long dayDurationInMs;
     private String modo;
     private final VehiclePlant plant;
 
@@ -83,6 +83,7 @@ public class Director extends Thread{
         try {
             this.plant.getMutex().acquire();
             this.plant.getWareHouse().removeCars();
+            this.plant.setCounterDaysDelivery(Main.initial.getDeadLine());
             this.plant.getMutex().release();
             
             sleep(this.dayDurationInMs);
@@ -153,4 +154,14 @@ public class Director extends Thread{
     public void resetDays(){
         this.plant.setCounterDaysDelivery(Main.initial.deadLine);
     }
+
+    public long getDayDurationInMs() {
+        return dayDurationInMs;
+    }
+
+    public void setDayDurationInMs(long dayDurationInMs) {
+        this.dayDurationInMs = dayDurationInMs;
+    }
+    
+    
 }

@@ -17,7 +17,7 @@ public class Manager extends Thread{
     private final String name;
     private final float salary;
     private float accSalary;
-    private final long dayDurationInMs;
+    private long dayDurationInMs;
     private String modo;
     private final VehiclePlant plant;
     private float penalty;
@@ -104,7 +104,7 @@ public class Manager extends Thread{
     
     public void decreasecount(){
         int counter = this.plant.getCounterDaysDelivery();
-        this.plant.setCounterDaysDelivery(counter - 1);
+        this.plant.setCounterDaysDelivery(counter - 1000);
         if (this.plant.getName().equals("Lamborghini")){
             Global.getForm().getDaysLeftLG().setText(String.valueOf(this.plant.getCounterDaysDelivery()/1000));
         }else{
@@ -135,6 +135,12 @@ public class Manager extends Thread{
     public void setCountFaults(int countFaults) {
         this.countFaults = countFaults;
     }
-    
-    
+
+    public long getDayDurationInMs() {
+        return dayDurationInMs;
+    }
+
+    public void setDayDurationInMs(long dayDurationInMs) {
+        this.dayDurationInMs = dayDurationInMs;
+    }  
 }

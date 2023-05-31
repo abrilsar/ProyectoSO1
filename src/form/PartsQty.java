@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 public class PartsQty extends javax.swing.JPanel {
 
     private final JLabel[] labels;
+    
 
     /**
      * Creates new form PartsQty
@@ -38,6 +39,10 @@ public class PartsQty extends javax.swing.JPanel {
         }
     }
 
+    public JLabel[] getLabels() {
+        return labels;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

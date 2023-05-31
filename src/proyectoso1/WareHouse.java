@@ -64,32 +64,56 @@ public class WareHouse {
             case "Chasis" :
                 if(this.chasisQty < this.maxChasisQty){
                     this.chasisQty += finishedPart;
-                    
+                    if(isLG){
+                        Global.getForm().getPartsLG().getLabels()[0].setText(String.valueOf(chasisQty));
+                    }else{
+//                        Global.getForm().getPartsRR().getLabels()[0].setText(String.valueOf(chasisQty));
+                    }
                 }
                 break;
                 
             case "Body" :
                 if(this.bodiesQty < this.maxBodiesQty){
-                   this.bodiesQty += finishedPart;
+                    this.bodiesQty += finishedPart;
+                    if(isLG){
+                        Global.getForm().getPartsLG().getLabels()[1].setText(String.valueOf(bodiesQty));
+                    }else{
+//                        Global.getForm().getPartsRR().getLabels()[1].setText(String.valueOf(bodiesQty));
+                    }
                 }
                 
                 break;
                 
             case "Engine":
                 if(this.enginesQty < this.maxEnginesQty){
-                   this.enginesQty += finishedPart;
+                    this.enginesQty += finishedPart;
+                    if(isLG){
+                        Global.getForm().getPartsLG().getLabels()[2].setText(String.valueOf(enginesQty));
+                    }else{
+//                        Global.getForm().getPartsRR().getLabels()[2].setText(String.valueOf(enginesQty));
+                    }
                 }
                 break;
                 
             case "Wheels":
                 if(this.wheelsQty < this.maxWheelsQty){
-                   this.wheelsQty += finishedPart;
+                    this.wheelsQty += finishedPart;
+                    if(isLG){
+                        Global.getForm().getPartsLG().getLabels()[3].setText(String.valueOf(wheelsQty));
+                    }else{
+//                        Global.getForm().getPartsRR().getLabels()[3].setText(String.valueOf(wheelsQty));
+                    }
                }
                break;
                 
             case "Accessories":
                 if(this.accessoriesQty < this.maxAccessoriesQty){
-                   this.accessoriesQty += finishedPart;
+                    this.accessoriesQty += finishedPart;
+                    if(isLG){
+                        Global.getForm().getPartsLG().getLabels()[4].setText(String.valueOf(accessoriesQty));
+                    }else{
+//                        Global.getForm().getPartsRR().getLabels()[4].setText(String.valueOf(accessoriesQty));
+                    }
                 }    
                 break;
             
@@ -110,7 +134,6 @@ public class WareHouse {
                 this.standardVehicleCounter += 1;
                 this.standardVehicleQty += 1;
                 if (isLG){
-                    System.out.println(this.standardVehicleQty);
                     Global.getForm().getVeLG().setText(String.valueOf(this.standardVehicleQty));
 //                    Global.getForm().getVeLG().setText("a");
                 }else{
@@ -137,6 +160,17 @@ public class WareHouse {
         this.bodiesQty -= this.vehicleType[1];
         this.enginesQty -= this.vehicleType[2];
         this.wheelsQty -= this.vehicleType[3];
+        if(isLG){
+            Global.getForm().getPartsLG().getLabels()[0].setText(String.valueOf(chasisQty));
+            Global.getForm().getPartsLG().getLabels()[1].setText(String.valueOf(bodiesQty));
+            Global.getForm().getPartsLG().getLabels()[2].setText(String.valueOf(enginesQty));
+            Global.getForm().getPartsLG().getLabels()[3].setText(String.valueOf(wheelsQty));
+        }else{
+//            Global.getForm().getPartsRR().getLabels()[0].setText(String.valueOf(chasisQty));
+//            Global.getForm().getPartsRR().getLabels()[1].setText(String.valueOf(bodiesQty));
+//            Global.getForm().getPartsRR().getLabels()[2].setText(String.valueOf(enginesQty));
+//            Global.getForm().getPartsRR().getLabels()[3].setText(String.valueOf(wheelsQty));
+        }
 
     }
 

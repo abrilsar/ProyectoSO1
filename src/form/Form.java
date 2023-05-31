@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import proyectoso1.Director;
 import proyectoso1.Main;
 import proyectoso1.Txt;
 /**
@@ -57,7 +58,7 @@ public final class Form extends javax.swing.JFrame {
         panel.revalidate();
         panel.repaint();
     }
-    
+        
     public void createWorkersQty(JPanel panel, WorkersQty wq){
         wq.setSize(60, 220);
         wq.setLocation(0, 0);
@@ -476,8 +477,23 @@ public final class Form extends javax.swing.JFrame {
 //        wqRR.update(Main.initial.workersRR);
         wqLG.update(Main.initial.workersLG);
         Txt.saveData();
+        Main.LGPlant.initializeWorkers();
+        int dayDuration = Main.initial.getDayDuration();
+        
+        Main.LGPlant.setDayDuration(dayDuration);
+        Main.LGPlant.setCounterDaysDelivery(Main.initial.getDeadLine());
+        Main.LGPlant.initializeOther();
+        
+//        Main.RRPlant.setDayDuration(dayDuration);
+//        Main.RRPlant.setCounterDaysDelivery(Main.initial.getDeadLine());
+//        Main.RRPlant.initializeOther();
+        
     }//GEN-LAST:event_GuardarActionPerformed
 
+    public void initializeData(){
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -529,14 +545,16 @@ public final class Form extends javax.swing.JFrame {
         return penaltyLG;
     }
     
-    
-
     public JLabel getVaLG() {
         return vaLG;
     }
 
     public JLabel getVeLG() {
         return veLG;
+    }
+
+    public PartsQty getPartsLG() {
+        return partsLG;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

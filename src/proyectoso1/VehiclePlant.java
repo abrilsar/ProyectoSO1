@@ -15,7 +15,7 @@ public class VehiclePlant {
     private final String name;
     private final int maxWorkerQty;
     private final Worker[] workers;
-    private final long dayDuration;
+    private long dayDuration;
     public WareHouse wareHouse;
     public Semaphore mutex;
     public Director director;
@@ -32,10 +32,7 @@ public class VehiclePlant {
         this.counterDaysDelivery = Main.initial.deadLine;
         this.mutex = new Semaphore(1);
         this.mutexCounter = new Semaphore(1);
-        this.director = new Director(Values.salarys[6],this.dayDuration, this);
-        this.director.start();
-        this.manager = new Manager(Values.salarys[7], this.dayDuration, this);
-        this.manager.start();
+        initializeOther();
         initializeWorkers();
         
     }
@@ -139,7 +136,22 @@ public class VehiclePlant {
         this.counterDaysDelivery = counterDaysDelivery;
     }
     
+    public void setDayDuration(long dayDuration){
+        this.dayDuration = dayDuration;
+    }
+
+    public void setDirector(Director director) {
+        this.director = director;
+    }
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
     
-    
-    
+    public void initializeOther(){
+        this.director = new Director(Values.salarys[6],this.dayDuration, this);
+        this.director.start();
+        this.manager = new Manager(Values.salarys[7], this.dayDuration, this);
+        this.manager.start();
+    }
 }
