@@ -63,18 +63,28 @@ public class PartsQty extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         chasis.setText("0");
+        chasis.setMaximumSize(new java.awt.Dimension(20, 14));
+        chasis.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel1.add(chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         body.setText("0");
+        body.setMaximumSize(new java.awt.Dimension(20, 14));
+        body.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel1.add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         engine.setText("0");
-        jPanel1.add(engine, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        engine.setMaximumSize(new java.awt.Dimension(20, 14));
+        engine.setPreferredSize(new java.awt.Dimension(20, 14));
+        jPanel1.add(engine, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 20, -1));
 
         wheels.setText("0");
-        jPanel1.add(wheels, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        wheels.setMaximumSize(new java.awt.Dimension(20, 14));
+        wheels.setPreferredSize(new java.awt.Dimension(20, 14));
+        jPanel1.add(wheels, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 20, -1));
 
         acc.setText("0");
+        acc.setMaximumSize(new java.awt.Dimension(20, 14));
+        acc.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel1.add(acc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
