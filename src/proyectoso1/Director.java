@@ -54,7 +54,7 @@ public class Director extends Thread{
         if (this.plant.getName().equals("Lamborghini")){
             Global.getForm().getDirectorIsLG().setText(this.modo);
         }else{
-//             Global.getForm().getDirectorIsRR().setText(this.modo);
+             Global.getForm().getDirectorIsRR().setText(this.modo);
         }
     }
     
@@ -142,7 +142,8 @@ public class Director extends Thread{
             Global.getForm().getFaultsLG().setText(String.valueOf(this.plant.getManager().getCountFaults()));
             Global.getForm().getPenaltyLG().setText(String.valueOf(this.plant.getManager().getPenalty()));
         }else{
-//             Global.getForm().getDirectorIsRR().setText(this.modo);
+            Global.getForm().getFaultsRR().setText(String.valueOf(this.plant.getManager().getCountFaults()));
+            Global.getForm().getPenaltyRR().setText(String.valueOf(this.plant.getManager().getPenalty()));
         }
 
     }

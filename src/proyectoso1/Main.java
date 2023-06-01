@@ -11,7 +11,7 @@ package proyectoso1;
 public class Main {
 
     public static VehiclePlant LGPlant;
-    public static VehiclePlant RBPlant;
+    public static VehiclePlant RRPlant;
     public static Initial initial;
         
     /**
@@ -23,8 +23,7 @@ public class Main {
         initial = Txt.readData();
         Global.startForm(); 
         LGPlant = new VehiclePlant("Lamborghini", Values.maxEmployeesLG, initial.dayDuration);
-//        RBPlant = new VehiclePlant("Rolls Royce", Values.maxEmployeesRR, initial.dayDuration);
-//        Global.getForm().getVeLG().setText("a");
+        RRPlant = new VehiclePlant("Rolls Royce", Values.maxEmployeesRR, initial.dayDuration);
     }
     
 }

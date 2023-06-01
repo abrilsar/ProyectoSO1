@@ -56,7 +56,7 @@ public class Manager extends Thread{
         if (this.plant.getName().equals("Lamborghini")){
             Global.getForm().getManagerIsLG().setText(this.modo);
         }else{
-//             Global.getForm().getDirectorIsRR().setText(this.modo);
+             Global.getForm().getManagerIsRR().setText(this.modo);
         }
     }
     
@@ -108,7 +108,7 @@ public class Manager extends Thread{
         if (this.plant.getName().equals("Lamborghini")){
             Global.getForm().getDaysLeftLG().setText(String.valueOf(this.plant.getCounterDaysDelivery()/1000));
         }else{
-//             Global.getForm().getDirectorIsRR().setText(String.valueOf(this.plant.getCounterDaysDelivery()/1000));
+             Global.getForm().getDaysLeftRR().setText(String.valueOf(this.plant.getCounterDaysDelivery()/1000));
         }
     }
     

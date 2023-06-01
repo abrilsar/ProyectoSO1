@@ -56,6 +56,9 @@ public class WareHouse {
         if (isLG){
             Global.getForm().getVeLG().setText("0");
             Global.getForm().getVaLG().setText("0");
+        }else{
+            Global.getForm().getVeRR().setText("0");
+            Global.getForm().getVaRR().setText("0");
         }
     }
     
@@ -67,7 +70,7 @@ public class WareHouse {
                     if(isLG){
                         Global.getForm().getPartsLG().getLabels()[0].setText(String.valueOf(chasisQty));
                     }else{
-//                        Global.getForm().getPartsRR().getLabels()[0].setText(String.valueOf(chasisQty));
+                        Global.getForm().getPartsRR().getLabels()[0].setText(String.valueOf(chasisQty));
                     }
                 }
                 break;
@@ -78,7 +81,7 @@ public class WareHouse {
                     if(isLG){
                         Global.getForm().getPartsLG().getLabels()[1].setText(String.valueOf(bodiesQty));
                     }else{
-//                        Global.getForm().getPartsRR().getLabels()[1].setText(String.valueOf(bodiesQty));
+                        Global.getForm().getPartsRR().getLabels()[1].setText(String.valueOf(bodiesQty));
                     }
                 }
                 
@@ -90,7 +93,7 @@ public class WareHouse {
                     if(isLG){
                         Global.getForm().getPartsLG().getLabels()[2].setText(String.valueOf(this.enginesQty));
                     }else{
-//                        Global.getForm().getPartsRR().getLabels()[2].setText(String.valueOf(enginesQty));
+                        Global.getForm().getPartsRR().getLabels()[2].setText(String.valueOf(this.enginesQty));
                     }
                 }
                 break;
@@ -101,7 +104,7 @@ public class WareHouse {
                     if(isLG){
                         Global.getForm().getPartsLG().getLabels()[3].setText(String.valueOf(wheelsQty));
                     }else{
-//                        Global.getForm().getPartsRR().getLabels()[3].setText(String.valueOf(wheelsQty));
+                        Global.getForm().getPartsRR().getLabels()[3].setText(String.valueOf(wheelsQty));
                     }
                }
                break;
@@ -112,7 +115,7 @@ public class WareHouse {
                 if(isLG){
                         Global.getForm().getPartsLG().getLabels()[4].setText(String.valueOf(accessoriesQty));
                     }else{
-//                        Global.getForm().getPartsRR().getLabels()[4].setText(String.valueOf(accessoriesQty));
+                        Global.getForm().getPartsRR().getLabels()[4].setText(String.valueOf(accessoriesQty));
                     }
                 }    
                 break;
@@ -135,9 +138,8 @@ public class WareHouse {
                 this.standardVehicleQty += 1;
                 if (isLG){
                     Global.getForm().getVeLG().setText(String.valueOf(this.standardVehicleQty));
-//                    Global.getForm().getVeLG().setText("a");
                 }else{
-//                    Global.getForm().getVeRR().setText(String.valueOf(this.standardVehicleQty));
+                    Global.getForm().getVeRR().setText(String.valueOf(this.standardVehicleQty));
                 }
             }else{
                 if(this.accessoriesQty >= this.vehicleType[4]){
@@ -148,7 +150,7 @@ public class WareHouse {
                     if (isLG){
                         Global.getForm().getVaLG().setText(String.valueOf(this.vehicleWithAccessoriesQty));
                     }else{
-    //                    Global.getForm().getVaRR().setText(String.valueOf(this.standardVehicleQty));
+                        Global.getForm().getVaRR().setText(String.valueOf(this.vehicleWithAccessoriesQty));
                     }
                 }
             }
@@ -166,10 +168,10 @@ public class WareHouse {
             Global.getForm().getPartsLG().getLabels()[2].setText(String.valueOf(enginesQty));
             Global.getForm().getPartsLG().getLabels()[3].setText(String.valueOf(wheelsQty));
         }else{
-//            Global.getForm().getPartsRR().getLabels()[0].setText(String.valueOf(chasisQty));
-//            Global.getForm().getPartsRR().getLabels()[1].setText(String.valueOf(bodiesQty));
-//            Global.getForm().getPartsRR().getLabels()[2].setText(String.valueOf(enginesQty));
-//            Global.getForm().getPartsRR().getLabels()[3].setText(String.valueOf(wheelsQty));
+            Global.getForm().getPartsRR().getLabels()[0].setText(String.valueOf(chasisQty));
+            Global.getForm().getPartsRR().getLabels()[1].setText(String.valueOf(bodiesQty));
+            Global.getForm().getPartsRR().getLabels()[2].setText(String.valueOf(enginesQty));
+            Global.getForm().getPartsRR().getLabels()[3].setText(String.valueOf(wheelsQty));
         }
 
     }
