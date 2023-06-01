@@ -35,8 +35,10 @@ public class PlantForm extends javax.swing.JPanel {
         initComponents();
         if (isLG){
             this.wLG = new WorkersQtySpinner(Values.maxEmployeesLG, "workersLG");
+            fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rsz_carros.jpg")));
         }else{
             this.wLG = new WorkersQtySpinner(Values.maxEmployeesRR, "workersRR");
+            fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rsz_rrfondo_2.jpg")));
         }
         this.maxView = new MaxView();
         this.wqLG = new WorkersQty();
@@ -163,9 +165,10 @@ public class PlantForm extends javax.swing.JPanel {
         Título1 = new javax.swing.JLabel();
         daysLeftLG = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(773, 400));
+        jPanel1.setPreferredSize(new java.awt.Dimension(773, 412));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -191,6 +194,7 @@ public class PlantForm extends javax.swing.JPanel {
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         workersQtyLG.setBackground(new java.awt.Color(255, 255, 255));
+        workersQtyLG.setOpaque(false);
         workersQtyLG.setPreferredSize(new java.awt.Dimension(44, 174));
 
         javax.swing.GroupLayout workersQtyLGLayout = new javax.swing.GroupLayout(workersQtyLG);
@@ -214,6 +218,7 @@ public class PlantForm extends javax.swing.JPanel {
         jPanel1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
 
         partsQtyLG.setBackground(new java.awt.Color(255, 255, 255));
+        partsQtyLG.setOpaque(false);
         partsQtyLG.setPreferredSize(new java.awt.Dimension(40, 144));
 
         javax.swing.GroupLayout partsQtyLGLayout = new javax.swing.GroupLayout(partsQtyLG);
@@ -230,6 +235,7 @@ public class PlantForm extends javax.swing.JPanel {
         jPanel1.add(partsQtyLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
 
         maxLG.setBackground(new java.awt.Color(255, 255, 255));
+        maxLG.setOpaque(false);
         maxLG.setPreferredSize(new java.awt.Dimension(46, 174));
 
         javax.swing.GroupLayout maxLGLayout = new javax.swing.GroupLayout(maxLG);
@@ -317,6 +323,7 @@ public class PlantForm extends javax.swing.JPanel {
         jLabel49.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel49.setText("Información sobre el director");
         jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -340,6 +347,7 @@ public class PlantForm extends javax.swing.JPanel {
     private javax.swing.JLabel daysLeftLG;
     private javax.swing.JLabel directorIsLG;
     private javax.swing.JLabel faultsLG;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

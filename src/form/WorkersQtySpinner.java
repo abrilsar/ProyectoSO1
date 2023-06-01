@@ -29,6 +29,8 @@ public class WorkersQtySpinner extends javax.swing.JPanel {
      */
     public WorkersQtySpinner(int maxWorkerQty, String label) {
         initComponents();
+        this.jPanel1.setOpaque(false);
+        this.setOpaque(false);
         this.maxWorkerQty = maxWorkerQty;
         this.availableQty = maxWorkerQty;
         this.spinners = new JSpinner[6];

@@ -30,6 +30,7 @@ public final class Form extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rsz_dashboardfondo_1.jpg")));
         this.wLG = new WorkersQtySpinner(Values.maxEmployeesLG, "workersLG");
         this.wRR = new WorkersQtySpinner(Values.maxEmployeesRR, "workersRR");
         createWorkersQtySpinner(contentLG, wLG);
@@ -43,7 +44,7 @@ public final class Form extends javax.swing.JFrame {
     }
     
     public void createPlant(JPanel panel, PlantForm pq){
-        pq.setSize(773, 400);
+        pq.setSize(773, 412);
         pq.setLocation(0, 0);
         panel.removeAll();
         panel.add(pq, BorderLayout.CENTER);
@@ -110,6 +111,7 @@ public final class Form extends javax.swing.JFrame {
         DeadlineSpinner = new javax.swing.JSpinner();
         DayDurationSpinner = new javax.swing.JSpinner();
         contentLG = new javax.swing.JPanel();
+        fondo = new javax.swing.JLabel();
         RRPanel = new javax.swing.JPanel();
         LGPanel = new javax.swing.JPanel();
 
@@ -121,6 +123,7 @@ public final class Form extends javax.swing.JFrame {
         DashBoard_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         contentRR.setBackground(new java.awt.Color(255, 255, 255));
+        contentRR.setOpaque(false);
 
         javax.swing.GroupLayout contentRRLayout = new javax.swing.GroupLayout(contentRR);
         contentRR.setLayout(contentRRLayout);
@@ -139,13 +142,13 @@ public final class Form extends javax.swing.JFrame {
         Título.setText("Mercado Automotriz en Venezuela");
         DashBoard_Panel.add(Título, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        ganancias_bruto.setText("Ganancias en bruto:");
+        ganancias_bruto.setText("Ganancias en bruto ($):");
         DashBoard_Panel.add(ganancias_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
 
-        gastos_op.setText("Gastos operativos:");
+        gastos_op.setText("Gastos operativos ($):");
         DashBoard_Panel.add(gastos_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
 
-        utilidad.setText("Utilidad total:");
+        utilidad.setText("Utilidad total ($):");
         DashBoard_Panel.add(utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
         LG.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -211,7 +214,7 @@ public final class Form extends javax.swing.JFrame {
         jLabel9.setText("Ensambladores");
         DashBoard_Panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
-        Deadline.setText("Deadline de entrega (en segundos):");
+        Deadline.setText("Deadline de entrega:");
         DashBoard_Panel.add(Deadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
         DayDuration.setText("Duración del día (en segundos):");
@@ -224,6 +227,7 @@ public final class Form extends javax.swing.JFrame {
         DashBoard_Panel.add(DayDurationSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 40, -1));
 
         contentLG.setBackground(new java.awt.Color(255, 255, 255));
+        contentLG.setOpaque(false);
 
         javax.swing.GroupLayout contentLGLayout = new javax.swing.GroupLayout(contentLG);
         contentLG.setLayout(contentLGLayout);
@@ -237,6 +241,9 @@ public final class Form extends javax.swing.JFrame {
         );
 
         DashBoard_Panel.add(contentLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 60, 220));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rsz_dashboardfondo.jpg"))); // NOI18N
+        DashBoard_Panel.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jTabbedPane1.addTab("DashBoard", DashBoard_Panel);
 
@@ -450,6 +457,7 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel Título;
     private javax.swing.JPanel contentLG;
     private javax.swing.JPanel contentRR;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel ganancias_bruto;
     private javax.swing.JLabel gastos_op;
     private javax.swing.JLabel jLabel2;

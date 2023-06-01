@@ -19,6 +19,8 @@ public class MaxView extends javax.swing.JPanel {
      */
     public MaxView() {
         initComponents();
+        this.jPanel2.setOpaque(false);
+        this.setOpaque(false);
         maxC.setText(String.valueOf(Values.maxPerCategory[0]));
         maxB.setText(String.valueOf(Values.maxPerCategory[1]));
         maxE.setText(String.valueOf(Values.maxPerCategory[2]));
@@ -43,6 +45,8 @@ public class MaxView extends javax.swing.JPanel {
         maxE = new javax.swing.JLabel();
         maxW = new javax.swing.JLabel();
         maxAc = new javax.swing.JLabel();
+
+        setOpaque(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

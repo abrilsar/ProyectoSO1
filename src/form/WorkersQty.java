@@ -19,6 +19,8 @@ public class WorkersQty extends javax.swing.JPanel {
      */
     public WorkersQty() {
         initComponents();
+        this.jPanel1.setOpaque(false);
+        this.setOpaque(false);
         this.labels = new JLabel[6];
         initializeLabels();
     }

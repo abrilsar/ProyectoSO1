@@ -21,6 +21,8 @@ public class PartsQty extends javax.swing.JPanel {
      */
     public PartsQty() {
         initComponents();
+        this.jPanel1.setOpaque(false);
+        this.setOpaque(false);
         this.labels = new JLabel[5];
         initializeLabels();
     }
