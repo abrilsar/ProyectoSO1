@@ -50,6 +50,8 @@ public class WareHouse {
     }  
  
     public void removeCars(){
+        this.plant.calculateProfit();
+        this.plant.calculateUtility();
         this.standardVehicleQty = 0;
         this.vehicleWithAccessoriesQty = 0;
         this.standardVehicleCounter = 0;
@@ -144,13 +146,9 @@ public class WareHouse {
                 this.standardVehicleQty += 1;
                 if (isLG){
                     Global.getForm().getVeLG().setText(String.valueOf(this.standardVehicleQty));
-                    this.plant.calculateProfit(Values.salePriceLG[0]);
                 }else{
                     Global.getForm().getVeRR().setText(String.valueOf(this.standardVehicleQty));
-                    this.plant.calculateProfit(Values.salePriceRR[0]);
                 }
-                this.plant.calculateUtility();
-
             }else{
                 if(this.accessoriesQty >= this.vehicleType[4]){
                     this.standardVehicleCounter = 0;
@@ -159,13 +157,10 @@ public class WareHouse {
                     this.vehicleWithAccessoriesQty += 1;
                     if (isLG){
                         Global.getForm().getVaLG().setText(String.valueOf(this.vehicleWithAccessoriesQty));
-                        this.plant.calculateProfit(Values.salePriceLG[1]);
                     }else{
                         Global.getForm().getVaRR().setText(String.valueOf(this.vehicleWithAccessoriesQty));
-                        this.plant.calculateProfit(Values.salePriceRR[1]);
                     }
                 }
-                this.plant.calculateUtility();
             }
         }
     }

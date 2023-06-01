@@ -81,6 +81,8 @@ public final class Form extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        RRPanel = new javax.swing.JPanel();
+        LGPanel = new javax.swing.JPanel();
         DashBoard_Panel = new javax.swing.JPanel();
         contentRR = new javax.swing.JPanel();
         Título = new javax.swing.JLabel();
@@ -110,11 +112,40 @@ public final class Form extends javax.swing.JFrame {
         DeadlineSpinner = new javax.swing.JSpinner();
         DayDurationSpinner = new javax.swing.JSpinner();
         contentLG = new javax.swing.JPanel();
-        RRPanel = new javax.swing.JPanel();
-        LGPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        RRPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout RRPanelLayout = new javax.swing.GroupLayout(RRPanel);
+        RRPanel.setLayout(RRPanelLayout);
+        RRPanelLayout.setHorizontalGroup(
+            RRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 773, Short.MAX_VALUE)
+        );
+        RRPanelLayout.setVerticalGroup(
+            RRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 412, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Rolls Royce", RRPanel);
+
+        LGPanel.setBackground(new java.awt.Color(255, 255, 255));
+        LGPanel.setRequestFocusEnabled(false);
+
+        javax.swing.GroupLayout LGPanelLayout = new javax.swing.GroupLayout(LGPanel);
+        LGPanel.setLayout(LGPanelLayout);
+        LGPanelLayout.setHorizontalGroup(
+            LGPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 773, Short.MAX_VALUE)
+        );
+        LGPanelLayout.setVerticalGroup(
+            LGPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 412, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Lamborghini", LGPanel);
 
         DashBoard_Panel.setBackground(new java.awt.Color(255, 255, 255));
         DashBoard_Panel.setPreferredSize(new java.awt.Dimension(773, 412));
@@ -239,37 +270,6 @@ public final class Form extends javax.swing.JFrame {
         DashBoard_Panel.add(contentLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 60, 220));
 
         jTabbedPane1.addTab("DashBoard", DashBoard_Panel);
-
-        RRPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout RRPanelLayout = new javax.swing.GroupLayout(RRPanel);
-        RRPanel.setLayout(RRPanelLayout);
-        RRPanelLayout.setHorizontalGroup(
-            RRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 773, Short.MAX_VALUE)
-        );
-        RRPanelLayout.setVerticalGroup(
-            RRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 412, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Rolls Royce", RRPanel);
-
-        LGPanel.setBackground(new java.awt.Color(255, 255, 255));
-        LGPanel.setRequestFocusEnabled(false);
-
-        javax.swing.GroupLayout LGPanelLayout = new javax.swing.GroupLayout(LGPanel);
-        LGPanel.setLayout(LGPanelLayout);
-        LGPanelLayout.setHorizontalGroup(
-            LGPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 773, Short.MAX_VALUE)
-        );
-        LGPanelLayout.setVerticalGroup(
-            LGPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 412, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Lamborghini", LGPanel);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
 
