@@ -214,7 +214,7 @@ public final class Form extends javax.swing.JFrame {
         jLabel9.setText("Ensambladores");
         DashBoard_Panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
-        Deadline.setText("Deadline de entrega:");
+        Deadline.setText("Deadline de entrega: ");
         DashBoard_Panel.add(Deadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
         DayDuration.setText("Duración del día (en segundos):");
@@ -241,8 +241,6 @@ public final class Form extends javax.swing.JFrame {
         );
 
         DashBoard_Panel.add(contentLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 60, 220));
-
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rsz_dashboardfondo.jpg"))); // NOI18N
         DashBoard_Panel.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jTabbedPane1.addTab("DashBoard", DashBoard_Panel);

@@ -96,7 +96,7 @@ public class Manager extends Thread{
     public void updateCounter(){
         try {
             plant.getMutexCounter().acquire();
-            decreasecount();
+            decreaseCount();
             plant.getMutexCounter().release();
             sleep(this.dayDurationInMs/3); //8 horas
         } catch (InterruptedException ex) {
@@ -105,7 +105,7 @@ public class Manager extends Thread{
         }
 
     
-    public void decreasecount(){
+    public void decreaseCount(){
         int counter = this.plant.getCounterDaysDelivery();
         this.plant.setCounterDaysDelivery(counter - 1000);
         if (this.plant.getName().equals("Lamborghini")){

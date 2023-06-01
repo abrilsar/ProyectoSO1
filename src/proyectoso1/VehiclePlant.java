@@ -160,11 +160,16 @@ public class VehiclePlant {
         this.manager = new Manager(Values.salarys[7], this.dayDuration, this);
         this.manager.start();
     }    
-    public void calculateProfit(int price){
-        this.profit += price;
+    public void calculateProfit(){
+        int standar = this.wareHouse.getStandardVehicleQty();
+        int noStandar = this.wareHouse.getVehicleWithAccessoriesQty();
         if(isLG()){
+            this.profit += (standar * Values.salePriceLG[0]);
+            this.profit += (noStandar * Values.salePriceLG[1]);
             Global.getForm().getLG_bruto().setText(String.valueOf(this.profit));
         }else{
+            this.profit += (standar * Values.salePriceRR[0]);
+            this.profit += (noStandar * Values.salePriceRR[1]);
             Global.getForm().getRR_bruto().setText(String.valueOf(this.profit));
             
         }
