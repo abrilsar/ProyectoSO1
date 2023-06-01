@@ -68,7 +68,7 @@ public class WareHouse {
                 if(this.chasisQty < this.maxChasisQty){
                     this.chasisQty += finishedPart;
                     if(isLG){
-                        Global.getForm().getPartsLG().getLabels()[0].setText(String.valueOf(chasisQty));
+                        Global.getForm().getPartsLG().getLabels()[0].setText(String.valueOf(this.chasisQty));
                     }else{
                         Global.getForm().getPartsRR().getLabels()[0].setText(String.valueOf(chasisQty));
                     }
@@ -88,8 +88,11 @@ public class WareHouse {
                 break;
                 
             case "Engine":
-                if(this.enginesQty < (this.maxEnginesQty - 1)){
+                if(this.enginesQty < (this.maxEnginesQty)){
                     this.enginesQty += finishedPart;
+                    if(this.enginesQty > this.maxEnginesQty){
+                        this.enginesQty -= (this.enginesQty - this.maxEnginesQty);
+                    }
                     if(isLG){
                         Global.getForm().getPartsLG().getLabels()[2].setText(String.valueOf(this.enginesQty));
                     }else{
@@ -101,6 +104,9 @@ public class WareHouse {
             case "Wheels":
                 if(this.wheelsQty < this.maxWheelsQty){
                     this.wheelsQty += finishedPart;
+                    if(this.wheelsQty > this.maxWheelsQty){
+                        this.wheelsQty -= (this.wheelsQty - this.maxWheelsQty);
+                    }
                     if(isLG){
                         Global.getForm().getPartsLG().getLabels()[3].setText(String.valueOf(wheelsQty));
                     }else{
