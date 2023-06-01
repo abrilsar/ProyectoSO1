@@ -17,8 +17,8 @@ public class Values {
     public static int[] vehicleRR = new int[]{3,2,4,6,5};
     public static int[] vehicleLG = new int[]{2,1,6,5,1};
     public static int[] salarys = new int[]{10,13,20,8,17,25,30,20};
-    public static int[] salePriceRR = new int[]{450,900};
-    public static int[] salePriceLG = new int[]{400,750};
+    public static int[] salePriceRR = new int[]{450000,900000};
+    public static int[] salePriceLG = new int[]{400000,750000};
     public static int carRangeRR = 6;
     public static int carRangeLG = 3;  
     public static double[] productionPerDayRR = new double[]{0.5,0.5,3,3,0.33,0.5};     

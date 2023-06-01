@@ -31,7 +31,7 @@ public class VehiclePlant {
         this.maxWorkerQty = maxWorkerQty;
         this.workers = new Worker[maxWorkerQty];
         this.dayDuration = dayDuration;
-        this.wareHouse = new WareHouse(Values.maxPerCategory, defineTypeCar(), betweenTypeCar(), name.equals("Lamborghini"));
+        this.wareHouse = new WareHouse(Values.maxPerCategory, defineTypeCar(), betweenTypeCar(), name.equals("Lamborghini"), this);
         this.counterDaysDelivery = Main.initial.deadLine;
         this.mutex = new Semaphore(1);
         this.mutexCounter = new Semaphore(1);
@@ -161,39 +161,23 @@ public class VehiclePlant {
         this.manager.start();
     }
     
-    public void calculateProfit(){
-        int standarQty = this.wareHouse.getStandardVehicleQty();
-        int noStandarQty = this.wareHouse.getVehicleWithAccessoriesQty();
-        
+    public void calculateProfit(int price){
+        this.profit += price;
         if(isLG()){
-            this.profit += (Values.salePriceLG[0] * standarQty);
-            this.profit += (Values.salePriceLG[1] * noStandarQty);
+            
         }else{
-            this.profit += (Values.salePriceRR[0] * standarQty);
-            this.profit += (Values.salePriceRR[1] * noStandarQty);
+            
         }
     }
     
     
-    public void calculateExpenses(){
-        for (int i = 0; i < this.workers.length; i++) {
-            this.expenses += this.workers[i].getAccSalary();
-            if(isLG()){
-                
-            }else{
-                
-            }
-        }
-        
+    public void calculateExpenses(int qty){
+        this.expenses += qty;
         if(isLG()){
-            this.expenses += this.director.getAccSalary();
-            this.expenses += (this.manager.getAccSalary());     
+            
         }else{
-            this.expenses += this.director.getAccSalary();
-            this.expenses += (this.manager.getAccSalary());
+
         }
-        
-                
     }
     
     public boolean isLG(){
@@ -202,7 +186,6 @@ public class VehiclePlant {
     
     public void calculateUtility(){
         this.utility += (this.profit - this.expenses);
-        
         if(isLG()){
             
         }else{
@@ -212,8 +195,8 @@ public class VehiclePlant {
     
     
     public void calcrulateStatistics(){
-        this.calculateExpenses();
-        this.calculateProfit();
-        this.calculateUtility();
+        System.out.println("GANANCIA: " + this.profit);
+        System.out.println("GASTOS: " + this.expenses);
+        System.out.println("UTILIDAD: " + this.utility);
     }
 }

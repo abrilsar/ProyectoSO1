@@ -59,7 +59,9 @@ public class Worker extends Thread{
     
     public void payCheck(){
         this.accSalary += (this.salary * 24);
-        this.plant.calcrulateStatistics();
+        this.plant.calculateExpenses((int) this.salary * 24);
+        this.plant.calculateUtility();
+
     }
     
     public void produceForTheDay(){
