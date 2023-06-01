@@ -85,10 +85,10 @@ public class WareHouse {
                 break;
                 
             case "Engine":
-                if(this.enginesQty < this.maxEnginesQty){
+                if(this.enginesQty < (this.maxEnginesQty - 1)){
                     this.enginesQty += finishedPart;
                     if(isLG){
-                        Global.getForm().getPartsLG().getLabels()[2].setText(String.valueOf(enginesQty));
+                        Global.getForm().getPartsLG().getLabels()[2].setText(String.valueOf(this.enginesQty));
                     }else{
 //                        Global.getForm().getPartsRR().getLabels()[2].setText(String.valueOf(enginesQty));
                     }
@@ -109,7 +109,7 @@ public class WareHouse {
             case "Accessories":
                 if(this.accessoriesQty < this.maxAccessoriesQty){
                     this.accessoriesQty += finishedPart;
-                    if(isLG){
+                if(isLG){
                         Global.getForm().getPartsLG().getLabels()[4].setText(String.valueOf(accessoriesQty));
                     }else{
 //                        Global.getForm().getPartsRR().getLabels()[4].setText(String.valueOf(accessoriesQty));
@@ -130,8 +130,8 @@ public class WareHouse {
         if(this.chasisQty >= this.vehicleType[0] && this.bodiesQty >= this.vehicleType[1] &&  this.enginesQty >= this.vehicleType[2] && this.wheelsQty >= this.vehicleType[3]){   
             if(this.standardVehicleCounter < this.betweenTypeCar){
 //                Aqui se crean los carros standar
-                reduceValues();
                 this.standardVehicleCounter += 1;
+                reduceValues();
                 this.standardVehicleQty += 1;
                 if (isLG){
                     Global.getForm().getVeLG().setText(String.valueOf(this.standardVehicleQty));
@@ -142,8 +142,8 @@ public class WareHouse {
             }else{
                 if(this.accessoriesQty >= this.vehicleType[4]){
                     this.standardVehicleCounter = 0;
-                    reduceValues();
                     this.accessoriesQty -= this.vehicleType[4];
+                    reduceValues();                
                     this.vehicleWithAccessoriesQty += 1;
                     if (isLG){
                         Global.getForm().getVaLG().setText(String.valueOf(this.vehicleWithAccessoriesQty));

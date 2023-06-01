@@ -60,7 +60,7 @@ public class MaxView extends javax.swing.JPanel {
         jPanel2.add(maxE, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         maxW.setText("jLabel1");
-        jPanel2.add(maxW, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jPanel2.add(maxW, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 40, -1));
 
         maxAc.setText("jLabel1");
         jPanel2.add(maxAc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));

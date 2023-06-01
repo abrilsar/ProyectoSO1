@@ -135,7 +135,7 @@ public class WorkersQtySpinner extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         availableLabel.setText("jLabel4");
-        jPanel1.add(availableLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jPanel1.add(availableLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 10, 40, -1));
 
         chasisQTY.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         jPanel1.add(chasisQTY, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 40, 20));
