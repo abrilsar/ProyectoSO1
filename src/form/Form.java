@@ -117,6 +117,7 @@ public final class Form extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DashBoard_Panel.setBackground(new java.awt.Color(255, 255, 255));
+        DashBoard_Panel.setPreferredSize(new java.awt.Dimension(773, 412));
         DashBoard_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         contentRR.setBackground(new java.awt.Color(255, 255, 255));
@@ -139,39 +140,39 @@ public final class Form extends javax.swing.JFrame {
         DashBoard_Panel.add(Título, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         ganancias_bruto.setText("Ganancias en bruto:");
-        DashBoard_Panel.add(ganancias_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
+        DashBoard_Panel.add(ganancias_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
 
         gastos_op.setText("Gastos operativos:");
-        DashBoard_Panel.add(gastos_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
+        DashBoard_Panel.add(gastos_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
 
         utilidad.setText("Utilidad total:");
-        DashBoard_Panel.add(utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, -1, -1));
+        DashBoard_Panel.add(utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
         LG.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LG.setText("Lamborghini");
-        DashBoard_Panel.add(LG, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, -1, -1));
+        DashBoard_Panel.add(LG, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, -1, -1));
 
         RR.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RR.setText("Rolls Royce");
-        DashBoard_Panel.add(RR, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, -1, -1));
+        DashBoard_Panel.add(RR, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, -1));
 
         LG_bruto.setText("jLabel4");
-        DashBoard_Panel.add(LG_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, -1, -1));
+        DashBoard_Panel.add(LG_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, -1, -1));
 
         RR_bruto.setText("jLabel4");
-        DashBoard_Panel.add(RR_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, -1, -1));
+        DashBoard_Panel.add(RR_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, -1, -1));
 
         RR_op.setText("jLabel4");
-        DashBoard_Panel.add(RR_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, -1, -1));
+        DashBoard_Panel.add(RR_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, -1, -1));
 
         LG_op.setText("jLabel4");
-        DashBoard_Panel.add(LG_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, -1, -1));
+        DashBoard_Panel.add(LG_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, -1, -1));
 
         LG_utilidad.setText("jLabel4");
-        DashBoard_Panel.add(LG_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, -1, -1));
+        DashBoard_Panel.add(LG_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, -1, -1));
 
         RR_utilidad.setText("jLabel4");
-        DashBoard_Panel.add(RR_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, -1, -1));
+        DashBoard_Panel.add(RR_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, -1, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +188,7 @@ public final class Form extends javax.swing.JFrame {
 
         LG1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LG1.setText("Lamborghini");
-        DashBoard_Panel.add(LG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+        DashBoard_Panel.add(LG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
 
         jLabel2.setText("Empleados disponibles");
         DashBoard_Panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
@@ -249,7 +250,7 @@ public final class Form extends javax.swing.JFrame {
         );
         RRPanelLayout.setVerticalGroup(
             RRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+            .addGap(0, 412, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Rolls Royce", RRPanel);
@@ -265,12 +266,12 @@ public final class Form extends javax.swing.JFrame {
         );
         LGPanelLayout.setVerticalGroup(
             LGPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+            .addGap(0, 412, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Lamborghini", LGPanel);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 534));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

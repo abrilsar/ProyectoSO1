@@ -162,6 +162,7 @@ public class PlantForm extends javax.swing.JPanel {
         vaLG = new javax.swing.JLabel();
         Título1 = new javax.swing.JLabel();
         daysLeftLG = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(773, 400));
@@ -260,8 +261,8 @@ public class PlantForm extends javax.swing.JPanel {
         jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
 
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel46.setText("Información sobre el director");
-        jPanel1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
+        jLabel46.setText("Información sobre el gerente");
+        jPanel1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, -1, -1));
 
         jLabel48.setText("El director está");
         jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, -1, -1));
@@ -313,6 +314,10 @@ public class PlantForm extends javax.swing.JPanel {
         daysLeftLG.setText("0");
         jPanel1.add(daysLeftLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 50, -1));
 
+        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel49.setText("Información sobre el director");
+        jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -354,6 +359,7 @@ public class PlantForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel6;
