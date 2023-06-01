@@ -59,6 +59,7 @@ public class Worker extends Thread{
     
     public void payCheck(){
         this.accSalary += (this.salary * 24);
+        this.plant.calcrulateStatistics();
     }
     
     public void produceForTheDay(){
@@ -74,6 +75,12 @@ public class Worker extends Thread{
             this.productionCounter = 0;
         }
     }
+
+    public float getAccSalary() {
+        return accSalary;
+    }
+    
+    
 }
     
 

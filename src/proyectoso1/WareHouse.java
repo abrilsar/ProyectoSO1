@@ -182,4 +182,9 @@ public class WareHouse {
         return standardVehicleCounter;
     }
 
+    public int getVehicleWithAccessoriesQty() {
+        return vehicleWithAccessoriesQty;
+    }
+
+    
 }   

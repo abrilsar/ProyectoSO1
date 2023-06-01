@@ -59,7 +59,8 @@ public class Director extends Thread{
     }
     
     public void payCheck(){
-        this.accSalary += (this.salary * 24); 
+        this.accSalary += (this.salary * 24);
+        this.plant.calcrulateStatistics();
     }
     
     public boolean checkCounterDays(){
@@ -144,6 +145,8 @@ public class Director extends Thread{
         }else{
 //             Global.getForm().getDirectorIsRR().setText(this.modo);
         }
+        
+        this.plant.calcrulateStatistics();
 
     }
 
@@ -161,6 +164,10 @@ public class Director extends Thread{
 
     public void setDayDurationInMs(long dayDurationInMs) {
         this.dayDurationInMs = dayDurationInMs;
+    }
+
+    public float getAccSalary() {
+        return accSalary;
     }
     
     

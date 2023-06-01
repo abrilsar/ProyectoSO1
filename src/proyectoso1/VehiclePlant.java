@@ -22,6 +22,9 @@ public class VehiclePlant {
     public Manager manager;
     public Semaphore mutexCounter;
     public int counterDaysDelivery;
+    public int profit;
+    public int expenses;
+    public int utility;
     
     public VehiclePlant(String name, int maxWorkerQty, long dayDuration) {
         this.name = name;
@@ -34,6 +37,9 @@ public class VehiclePlant {
         this.mutexCounter = new Semaphore(1);
         initializeOther();
         initializeWorkers();
+        this.profit = 0;
+        this.expenses = 0;
+        this.utility = 0;
         
     }
     
@@ -153,5 +159,61 @@ public class VehiclePlant {
         this.director.start();
         this.manager = new Manager(Values.salarys[7], this.dayDuration, this);
         this.manager.start();
+    }
+    
+    public void calculateProfit(){
+        int standarQty = this.wareHouse.getStandardVehicleQty();
+        int noStandarQty = this.wareHouse.getVehicleWithAccessoriesQty();
+        
+        if(isLG()){
+            this.profit += (Values.salePriceLG[0] * standarQty);
+            this.profit += (Values.salePriceLG[1] * noStandarQty);
+        }else{
+            this.profit += (Values.salePriceRR[0] * standarQty);
+            this.profit += (Values.salePriceRR[1] * noStandarQty);
+        }
+    }
+    
+    
+    public void calculateExpenses(){
+        for (int i = 0; i < this.workers.length; i++) {
+            this.expenses += this.workers[i].getAccSalary();
+            if(isLG()){
+                
+            }else{
+                
+            }
+        }
+        
+        if(isLG()){
+            this.expenses += this.director.getAccSalary();
+            this.expenses += (this.manager.getAccSalary());     
+        }else{
+            this.expenses += this.director.getAccSalary();
+            this.expenses += (this.manager.getAccSalary());
+        }
+        
+                
+    }
+    
+    public boolean isLG(){
+        return this.name.equals("Lamborghini");
+    }
+    
+    public void calculateUtility(){
+        this.utility += (this.profit - this.expenses);
+        
+        if(isLG()){
+            
+        }else{
+            
+        }
+    }
+    
+    
+    public void calcrulateStatistics(){
+        this.calculateExpenses();
+        this.calculateProfit();
+        this.calculateUtility();
     }
 }
