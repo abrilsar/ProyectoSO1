@@ -61,7 +61,10 @@ public class Manager extends Thread{
     }
     
     public void payCheck(){
-        this.accSalary += (this.salary * 24);   
+        this.accSalary += (this.salary * 24);
+        this.plant.calculateExpenses((int) this.salary * 24);
+        this.plant.calculateUtility();
+
     }
     
     public void firstPartDay(){
@@ -143,4 +146,6 @@ public class Manager extends Thread{
     public void setDayDurationInMs(long dayDurationInMs) {
         this.dayDurationInMs = dayDurationInMs;
     }  
+    
+    
 }

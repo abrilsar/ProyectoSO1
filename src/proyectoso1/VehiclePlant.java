@@ -22,18 +22,24 @@ public class VehiclePlant {
     public Manager manager;
     public Semaphore mutexCounter;
     public int counterDaysDelivery;
+    public int profit;
+    public int expenses;
+    public int utility;
     
     public VehiclePlant(String name, int maxWorkerQty, long dayDuration) {
         this.name = name;
         this.maxWorkerQty = maxWorkerQty;
         this.workers = new Worker[maxWorkerQty];
         this.dayDuration = dayDuration;
-        this.wareHouse = new WareHouse(Values.maxPerCategory, defineTypeCar(), betweenTypeCar(), name.equals("Lamborghini"));
+        this.wareHouse = new WareHouse(Values.maxPerCategory, defineTypeCar(), betweenTypeCar(), name.equals("Lamborghini"), this);
         this.counterDaysDelivery = Main.initial.deadLine;
         this.mutex = new Semaphore(1);
         this.mutexCounter = new Semaphore(1);
         initializeOther();
         initializeWorkers();
+        this.profit = 0;
+        this.expenses = 0;
+        this.utility = 0;
         
     }
     
@@ -153,5 +159,37 @@ public class VehiclePlant {
         this.director.start();
         this.manager = new Manager(Values.salarys[7], this.dayDuration, this);
         this.manager.start();
+    }    
+    public void calculateProfit(int price){
+        this.profit += price;
+        if(isLG()){
+            Global.getForm().getLG_bruto().setText(String.valueOf(this.profit));
+        }else{
+            Global.getForm().getRR_bruto().setText(String.valueOf(this.profit));
+            
+        }
+    }
+    
+    
+    public void calculateExpenses(int qty){
+        this.expenses += qty;
+        if(isLG()){
+            Global.getForm().getLG_op().setText(String.valueOf(this.expenses));
+        }else{
+            Global.getForm().getRR_op().setText(String.valueOf(this.expenses));
+        }
+    }
+    
+    public boolean isLG(){
+        return this.name.equals("Lamborghini");
+    }
+    
+    public void calculateUtility(){
+        this.utility = (this.profit - this.expenses);
+        if(isLG()){
+            Global.getForm().getLG_utilidad().setText(String.valueOf(this.utility));
+        }else{
+            Global.getForm().getRR_utilidad().setText(String.valueOf(this.utility));
+        }
     }
 }

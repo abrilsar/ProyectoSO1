@@ -59,7 +59,10 @@ public class Director extends Thread{
     }
     
     public void payCheck(){
-        this.accSalary += (this.salary * 24); 
+        this.accSalary += (this.salary * 24);
+        this.plant.calculateExpenses((int) this.salary * 24);
+        this.plant.calculateUtility();
+
     }
     
     public boolean checkCounterDays(){
@@ -85,7 +88,6 @@ public class Director extends Thread{
             this.plant.getWareHouse().removeCars();
             this.plant.setCounterDaysDelivery(Main.initial.getDeadLine());
             this.plant.getMutex().release();
-            
             sleep(this.dayDurationInMs);
         } catch (InterruptedException ex) {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
@@ -129,6 +131,7 @@ public class Director extends Thread{
         } catch (InterruptedException ex) {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
     public void penaltyManager(){
@@ -145,6 +148,9 @@ public class Director extends Thread{
             Global.getForm().getFaultsRR().setText(String.valueOf(this.plant.getManager().getCountFaults()));
             Global.getForm().getPenaltyRR().setText(String.valueOf(this.plant.getManager().getPenalty()));
         }
+        
+        this.plant.calculateExpenses(Values.penaltyMoney * -1);
+        this.plant.calculateUtility();
 
     }
 
@@ -162,6 +168,10 @@ public class Director extends Thread{
 
     public void setDayDurationInMs(long dayDurationInMs) {
         this.dayDurationInMs = dayDurationInMs;
+    }
+
+    public float getAccSalary() {
+        return accSalary;
     }
     
     

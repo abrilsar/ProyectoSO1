@@ -19,7 +19,7 @@ public class WareHouse {
     private int vehicleWithAccessoriesQty;
     private int standardVehicleCounter;
     private final int[] vehicleType;
-   
+    public VehiclePlant plant;
     
     private final int maxChasisQty;
     private final int maxWheelsQty;
@@ -30,7 +30,7 @@ public class WareHouse {
     
     private final boolean isLG;
 
-    public WareHouse(int[] maxCategory, int[] vehicleType, int betweenTypeCar, boolean isLG){    
+    public WareHouse(int[] maxCategory, int[] vehicleType, int betweenTypeCar, boolean isLG, VehiclePlant plant){    
         this.maxChasisQty = maxCategory[0];
         this.maxWheelsQty = maxCategory[3];
         this.maxEnginesQty = maxCategory[2];
@@ -46,7 +46,7 @@ public class WareHouse {
         this.vehicleType = vehicleType; 
         this.betweenTypeCar = betweenTypeCar;
         this.isLG = isLG;
-        
+        this.plant = plant;
     }  
  
     public void removeCars(){
@@ -138,9 +138,13 @@ public class WareHouse {
                 this.standardVehicleQty += 1;
                 if (isLG){
                     Global.getForm().getVeLG().setText(String.valueOf(this.standardVehicleQty));
+                    this.plant.calculateProfit(Values.salePriceLG[0]);
                 }else{
                     Global.getForm().getVeRR().setText(String.valueOf(this.standardVehicleQty));
+                    this.plant.calculateProfit(Values.salePriceRR[0]);
                 }
+                this.plant.calculateUtility();
+
             }else{
                 if(this.accessoriesQty >= this.vehicleType[4]){
                     this.standardVehicleCounter = 0;
@@ -149,10 +153,13 @@ public class WareHouse {
                     this.vehicleWithAccessoriesQty += 1;
                     if (isLG){
                         Global.getForm().getVaLG().setText(String.valueOf(this.vehicleWithAccessoriesQty));
+                        this.plant.calculateProfit(Values.salePriceLG[1]);
                     }else{
                         Global.getForm().getVaRR().setText(String.valueOf(this.vehicleWithAccessoriesQty));
+                        this.plant.calculateProfit(Values.salePriceRR[1]);
                     }
                 }
+                this.plant.calculateUtility();
             }
         }
     }
@@ -184,4 +191,9 @@ public class WareHouse {
         return standardVehicleCounter;
     }
 
+    public int getVehicleWithAccessoriesQty() {
+        return vehicleWithAccessoriesQty;
+    }
+
+    
 }   

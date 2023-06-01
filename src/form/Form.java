@@ -156,23 +156,23 @@ public final class Form extends javax.swing.JFrame {
         RR.setText("Rolls Royce");
         DashBoard_Panel.add(RR, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, -1));
 
-        LG_bruto.setText("jLabel4");
-        DashBoard_Panel.add(LG_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, -1, -1));
+        LG_bruto.setText("0");
+        DashBoard_Panel.add(LG_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, 80, -1));
 
-        RR_bruto.setText("jLabel4");
-        DashBoard_Panel.add(RR_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, -1, -1));
+        RR_bruto.setText("0");
+        DashBoard_Panel.add(RR_bruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 80, -1));
 
-        RR_op.setText("jLabel4");
-        DashBoard_Panel.add(RR_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, -1, -1));
+        RR_op.setText("0");
+        DashBoard_Panel.add(RR_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 80, -1));
 
-        LG_op.setText("jLabel4");
-        DashBoard_Panel.add(LG_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, -1, -1));
+        LG_op.setText("0");
+        DashBoard_Panel.add(LG_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 80, -1));
 
-        LG_utilidad.setText("jLabel4");
-        DashBoard_Panel.add(LG_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, -1, -1));
+        LG_utilidad.setText("0");
+        DashBoard_Panel.add(LG_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, 80, -1));
 
-        RR_utilidad.setText("jLabel4");
-        DashBoard_Panel.add(RR_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, -1, -1));
+        RR_utilidad.setText("0");
+        DashBoard_Panel.add(RR_utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 80, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +180,7 @@ public final class Form extends javax.swing.JFrame {
                 GuardarActionPerformed(evt);
             }
         });
-        DashBoard_Panel.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
+        DashBoard_Panel.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
 
         RR1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RR1.setText("Rolls Royce");
@@ -401,6 +401,32 @@ public final class Form extends javax.swing.JFrame {
     public JLabel getDaysLeftRR() {
         return plantRR.getDaysLeftLG();
     }
+
+    public JLabel getLG_bruto() {
+        return LG_bruto;
+    }
+
+    public JLabel getLG_op() {
+        return LG_op;
+    }
+
+    public JLabel getLG_utilidad() {
+        return LG_utilidad;
+    }
+
+    public JLabel getRR_bruto() {
+        return RR_bruto;
+    }
+
+    public JLabel getRR_op() {
+        return RR_op;
+    }
+
+    public JLabel getRR_utilidad() {
+        return RR_utilidad;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashBoard_Panel;
