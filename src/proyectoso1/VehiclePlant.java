@@ -46,10 +46,12 @@ public class VehiclePlant {
     public void initializeWorkers(){
         int[] listQtyWorker = defineTypeWorker();
         double[] listProductionPerDay = defineTypeProduction();
+        int aux = 0;
         for(int i = 0; i < listQtyWorker.length; i++){
             for (int j = 0; j < listQtyWorker[i]; j++) {
                 Worker worker = new Worker((float) listProductionPerDay[i], Values.salarys[i], this.dayDuration, Values.types[i], this);
-                this.workers[i] = worker;
+                this.workers[aux] = worker;
+                aux ++;
                 worker.start();
             }
             

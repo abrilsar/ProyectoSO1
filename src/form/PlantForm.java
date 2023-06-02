@@ -46,11 +46,13 @@ public class PlantForm extends javax.swing.JPanel {
         createMax(maxLG);
         if (isLG){
             Título1.setText("Lamborghini");
+            maxQty.setText("16");
             wqLG.update(Main.initial.getWorkersLG());
             createWorkersQty(workersQtyLG, wqLG);
             createPartsQty(partsQtyLG, partsLG);
         }else{
             Título1.setText("Rolls Royce");
+            maxQty.setText("12");
             wqLG.update(Main.initial.getWorkersRR());
             createWorkersQty(workersQtyLG, wqLG);
             createPartsQty(partsQtyLG, partsLG);
@@ -165,6 +167,7 @@ public class PlantForm extends javax.swing.JPanel {
         Título1 = new javax.swing.JLabel();
         daysLeftLG = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
+        maxQty = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -323,6 +326,9 @@ public class PlantForm extends javax.swing.JPanel {
         jLabel49.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel49.setText("Información sobre el director");
         jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
+
+        maxQty.setText("0");
+        jPanel1.add(maxQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 30, -1));
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -374,6 +380,7 @@ public class PlantForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel managerIsLG;
     private javax.swing.JPanel maxLG;
+    private javax.swing.JLabel maxQty;
     private javax.swing.JPanel partsQtyLG;
     private javax.swing.JLabel penaltyLG;
     private javax.swing.JLabel vaLG;
